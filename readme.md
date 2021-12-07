@@ -57,5 +57,14 @@ You need to register for an account at https://newsapi.org/ and insert your API 
 ####I am getting the error: *'Invalid News API key in configuration file'*
 The API key in the ```config.json``` file is not correct. Ensure you have entered your own API key exactly as it appears on https://newsapi.org/
 
+####Some of the news articles are not relevant to coronavirus
+This is a limitation of the News API. Some articles may not be about Covid-19 directly but if they mention it enough they may still be displayed due to the way the keywords work. You can simply delete the irrelevant articles from the webpage, or try altering the keywords in ```config.json``` yourself
+
+####Some of the functions in this program are not used
+This program was made to fit a specification which required the creation of some specific functions. In some cases, the role of these functions has been implemented in a different way and so they were not used. 
+
+####The COVID-19 data is incorrect
+The data processing functions find the most recent valid values from the API, but this is often a few days behind because collecting the data takes time. All Covid-19 data is taken from the UK government's statistics via the official [API](https://coronavirus.data.gov.uk/details/developers-guide).
+
 ## License
 [MIT](https://choosealicense.com/licenses/mit/)
