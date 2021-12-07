@@ -1,5 +1,5 @@
 import time
-from time_conversions import *
+from hjc236_covid_dashboard.time_conversions import *
 
 
 def test_minutes_to_seconds():

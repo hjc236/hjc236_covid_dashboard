@@ -5,10 +5,12 @@ import os
 
 from uk_covid19 import Cov19API
 
-from config_handler import get_config_data
+from hjc236_covid_dashboard.config_handler import get_config_data
 
 log_file_location = get_config_data()["log_file_path"]
-logging.basicConfig(filename=log_file_location, level=logging.DEBUG, format="%(asctime)s %(message)s")
+current_location = os.path.abspath(os.path.dirname(__file__))
+path = os.path.abspath(os.path.join(current_location, log_file_location))
+logging.basicConfig(filename=path, level=logging.DEBUG, format="%(asctime)s %(message)s")
 
 
 def parse_csv_data(csv_filename: str) -> list[str]:

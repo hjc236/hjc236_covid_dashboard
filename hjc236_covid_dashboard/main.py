@@ -1,10 +1,10 @@
 from flask import Flask
 from flask import render_template
 from flask import request
-from covid_data_handler import covid_API_request, update_covid
-from covid_news_handling import news_API_request, update_news, format_news_data
-from time_conversions import hhmm_to_seconds, current_time_seconds
-from config_handler import get_config_data
+from hjc236_covid_dashboard.covid_data_handler import covid_API_request, update_covid
+from hjc236_covid_dashboard.covid_news_handling import news_API_request, update_news, format_news_data
+from hjc236_covid_dashboard.time_conversions import hhmm_to_seconds, current_time_seconds
+from hjc236_covid_dashboard.config_handler import get_config_data, validate_config_data
 
 import sched
 import time
@@ -12,6 +12,9 @@ import logging
 
 log_file_location = get_config_data()["log_file_path"]
 logging.basicConfig(filename=log_file_location, level=logging.DEBUG, format="%(asctime)s %(message)s")
+
+config_data = get_config_data()
+validate_config_data(config_data)
 
 logging.info("\n\nWeb server initialised")
 
@@ -188,7 +191,9 @@ def web_interface() -> str:
                                           + f"{webpage_covid_data['hospitalCases']}",
 
                            news_articles=webpage_news_articles[0:article_amount],
-                           updates=updates
+                           updates=updates,
+
+                           image="coronavirus_icon.png",
                            )
 
 

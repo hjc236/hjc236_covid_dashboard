@@ -1,4 +1,4 @@
-from config_handler import get_config_data, validate_config_data, ConfigError
+from hjc236_covid_dashboard.config_handler import get_config_data, validate_config_data, ConfigError
 
 
 def test_get_config_data():

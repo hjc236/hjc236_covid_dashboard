@@ -1,7 +1,5 @@
-from covid_data_handler import parse_csv_data
-from covid_data_handler import process_covid_csv_data
-from covid_data_handler import covid_API_request
-from covid_data_handler import schedule_covid_updates
+from hjc236_covid_dashboard.covid_data_handler import parse_csv_data, process_covid_csv_data, covid_API_request, \
+    schedule_covid_updates
 
 
 def test_parse_csv_data():

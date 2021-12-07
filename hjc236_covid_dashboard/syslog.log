@@ -1240,3 +1240,238 @@ Web server initialised
 2021-12-07 12:12:17,966 127.0.0.1 - - [07/Dec/2021 12:12:17] "GET /index HTTP/1.1" 200 -
 2021-12-07 12:12:18,010 127.0.0.1 - - [07/Dec/2021 12:12:18] "[33mGET /static/images/ HTTP/1.1[0m" 404 -
 2021-12-07 12:12:18,050 127.0.0.1 - - [07/Dec/2021 12:12:18] "[33mGET /static/images/ HTTP/1.1[0m" 404 -
+2021-12-07 14:16:45,553 
+
+Web server initialised
+2021-12-07 14:16:45,553 Initialising news articles
+2021-12-07 14:16:45,553 Starting new HTTPS connection (1): newsapi.org:443
+2021-12-07 14:16:45,731 https://newsapi.org:443 "GET /v2/everything?q=covid%20COVID-19%20coronavirus&apiKey=&sortBy=publishedAt&language=en HTTP/1.1" 401 162
+2021-12-07 14:17:21,252 
+
+Web server initialised
+2021-12-07 14:17:21,267 Initialising news articles
+2021-12-07 14:17:21,267 Starting new HTTPS connection (1): newsapi.org:443
+2021-12-07 14:17:21,668 https://newsapi.org:443 "GET /v2/everything?q=covid%20COVID-19%20coronavirus&apiKey=&sortBy=publishedAt&language=en HTTP/1.1" 401 162
+2021-12-07 14:20:01,100 
+
+Web server initialised
+2021-12-07 14:20:01,115 Initialising news articles
+2021-12-07 14:20:01,115 Starting new HTTPS connection (1): newsapi.org:443
+2021-12-07 14:20:01,763 https://newsapi.org:443 "GET /v2/everything?q=covid%20COVID-19%20coronavirus&apiKey=ebefae8e017548f28a16851a36812ef5&sortBy=publishedAt&language=en HTTP/1.1" 200 None
+2021-12-07 14:20:18,000 
+
+Web server initialised
+2021-12-07 14:20:18,000 Initialising news articles
+2021-12-07 14:20:18,015 Starting new HTTPS connection (1): newsapi.org:443
+2021-12-07 14:20:18,254 https://newsapi.org:443 "GET /v2/everything?q=covid%20COVID-19%20coronavirus&apiKey=ebefae8e017548f28a16851a36812ef5&sortBy=publishedAt&language=en HTTP/1.1" 200 None
+2021-12-07 14:20:25,066 
+
+Web server initialised
+2021-12-07 14:20:25,066 Initialising news articles
+2021-12-07 14:20:25,066 Starting new HTTPS connection (1): newsapi.org:443
+2021-12-07 14:20:25,251 https://newsapi.org:443 "GET /v2/everything?q=covid%20COVID-19%20coronavirus&apiKey=ebefae8e017548f28a16851a36812ef5&sortBy=publishedAt&language=en HTTP/1.1" 200 None
+2021-12-07 14:21:00,148 
+
+Web server initialised
+2021-12-07 14:21:00,148 Initialising news articles
+2021-12-07 14:21:00,164 Starting new HTTPS connection (1): newsapi.org:443
+2021-12-07 14:21:00,333 https://newsapi.org:443 "GET /v2/everything?q=covid%20COVID-19%20coronavirus&apiKey=ebefae8e017548f28a16851a36812ef5pee&sortBy=publishedAt&language=en HTTP/1.1" 401 162
+2021-12-07 14:21:20,368 
+
+Web server initialised
+2021-12-07 14:21:20,368 Initialising news articles
+2021-12-07 14:21:20,368 Starting new HTTPS connection (1): newsapi.org:443
+2021-12-07 14:21:20,607 https://newsapi.org:443 "GET /v2/everything?q=covid%20COVID-19%20coronavirus&apiKey=ebefae8e017548f28a16851a36812ef5pee&sortBy=publishedAt&language=en HTTP/1.1" 401 162
+2021-12-07 14:22:27,256 
+
+Web server initialised
+2021-12-07 14:22:27,256 Initialising news articles
+2021-12-07 14:22:27,256 Starting new HTTPS connection (1): newsapi.org:443
+2021-12-07 14:22:27,426 https://newsapi.org:443 "GET /v2/everything?q=covid%20COVID-19%20coronavirus&apiKey=ebefae8e017548f28a16851a36812ef5pee&sortBy=publishedAt&language=en HTTP/1.1" 401 162
+2021-12-07 14:22:33,978 
+
+Web server initialised
+2021-12-07 14:22:33,978 Initialising news articles
+2021-12-07 14:22:33,978 Starting new HTTPS connection (1): newsapi.org:443
+2021-12-07 14:22:34,233 https://newsapi.org:443 "GET /v2/everything?q=covid%20COVID-19%20coronavirus&apiKey=ebefae8e017548f28a16851a36812ef5&sortBy=publishedAt&language=en HTTP/1.1" 200 None
+2021-12-07 14:22:34,233 Starting new HTTPS connection (1): newsapi.org:443
+2021-12-07 14:22:34,819 https://newsapi.org:443 "GET /v2/everything?q=Covid%20COVID-19%20coronavirus&apiKey=ebefae8e017548f28a16851a36812ef5&sortBy=publishedAt&language=en HTTP/1.1" 200 None
+2021-12-07 14:22:34,819 Initialising COVID data
+2021-12-07 14:22:34,819 Starting new HTTPS connection (1): api.coronavirus.data.gov.uk:443
+2021-12-07 14:22:34,950 https://api.coronavirus.data.gov.uk:443 "GET /v1/data?filters=areaType%3Dltla%3BareaName%3Dexeter&structure=%7B%22date%22%3A%22date%22%2C%22areaType%22%3A%22areaType%22%2C%22areaName%22%3A%22areaName%22%2C%22newCases%22%3A%22newCasesBySpecimenDate%22%7D&format=json&page=1 HTTP/1.1" 200 None
+2021-12-07 14:22:34,950 Starting new HTTPS connection (1): api.coronavirus.data.gov.uk:443
+2021-12-07 14:22:35,198 https://api.coronavirus.data.gov.uk:443 "GET /v1/data?filters=areaType%3Dltla%3BareaName%3Dexeter&structure=%7B%22date%22%3A%22date%22%2C%22areaType%22%3A%22areaType%22%2C%22areaName%22%3A%22areaName%22%2C%22newCases%22%3A%22newCasesBySpecimenDate%22%7D&format=json&page=2 HTTP/1.1" 204 0
+2021-12-07 14:22:35,198 Starting new HTTPS connection (1): api.coronavirus.data.gov.uk:443
+2021-12-07 14:22:35,298 https://api.coronavirus.data.gov.uk:443 "GET /v1/data?filters=areaType%3Dnation%3BareaName%3Dengland&structure=%7B%22date%22%3A%22date%22%2C%22areaType%22%3A%22areaType%22%2C%22areaName%22%3A%22areaName%22%2C%22newCases%22%3A%22newCasesByPublishDate%22%2C%22hospitalCases%22%3A%22hospitalCases%22%2C%22cumDeaths%22%3A%22cumDailyNsoDeathsByDeathDate%22%7D&format=json&page=1 HTTP/1.1" 200 None
+2021-12-07 14:22:35,314 Starting new HTTPS connection (1): api.coronavirus.data.gov.uk:443
+2021-12-07 14:22:35,583 https://api.coronavirus.data.gov.uk:443 "GET /v1/data?filters=areaType%3Dnation%3BareaName%3Dengland&structure=%7B%22date%22%3A%22date%22%2C%22areaType%22%3A%22areaType%22%2C%22areaName%22%3A%22areaName%22%2C%22newCases%22%3A%22newCasesByPublishDate%22%2C%22hospitalCases%22%3A%22hospitalCases%22%2C%22cumDeaths%22%3A%22cumDailyNsoDeathsByDeathDate%22%7D&format=json&page=2 HTTP/1.1" 204 0
+2021-12-07 14:22:35,583  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+2021-12-07 14:22:53,385 127.0.0.1 - - [07/Dec/2021 14:22:53] "[33mGET / HTTP/1.1[0m" 404 -
+2021-12-07 14:23:01,212 127.0.0.1 - - [07/Dec/2021 14:23:01] "GET /index HTTP/1.1" 200 -
+2021-12-07 14:23:01,297 127.0.0.1 - - [07/Dec/2021 14:23:01] "[33mGET /static/images/ HTTP/1.1[0m" 404 -
+2021-12-07 14:23:01,328 127.0.0.1 - - [07/Dec/2021 14:23:01] "[33mGET /static/images/ HTTP/1.1[0m" 404 -
+2021-12-07 14:23:06,600 Deletion request for article '<a href=https://www.businesswire.com/news/home/20211207005048/en/Build-A-Bear-Selects-Nutanix-and-Partners-to-Reinvent-the-Online-Shopping-Experience>Build-A-Bear Selects Nutanix and Partners to Reinvent the Online Shopping Experience</a>'
+2021-12-07 14:23:06,600 Deleted article with title '<a href=https://www.businesswire.com/news/home/20211207005048/en/Build-A-Bear-Selects-Nutanix-and-Partners-to-Reinvent-the-Online-Shopping-Experience>Build-A-Bear Selects Nutanix and Partners to Reinvent the Online Shopping Experience</a>'
+2021-12-07 14:23:06,600 127.0.0.1 - - [07/Dec/2021 14:23:06] "GET /index?notif=%3Ca+href%3Dhttps%3A%2F%2Fwww.businesswire.com%2Fnews%2Fhome%2F20211207005048%2Fen%2FBuild-A-Bear-Selects-Nutanix-and-Partners-to-Reinvent-the-Online-Shopping-Experience%3EBuild-A-Bear+Selects+Nutanix+and+Partners+to+Reinvent+the+Online+Shopping+Experience%3C%2Fa%3E HTTP/1.1" 200 -
+2021-12-07 14:23:06,647 127.0.0.1 - - [07/Dec/2021 14:23:06] "[33mGET /static/images/ HTTP/1.1[0m" 404 -
+2021-12-07 14:23:06,685 127.0.0.1 - - [07/Dec/2021 14:23:06] "[33mGET /static/images/ HTTP/1.1[0m" 404 -
+2021-12-07 14:23:13,717 Deletion request for article '<a href=https://khn.org/morning-briefing/tuesday-december-7-2021/>Tuesday, December 7, 2021</a>'
+2021-12-07 14:23:13,717 Deleted article with title '<a href=https://khn.org/morning-briefing/tuesday-december-7-2021/>Tuesday, December 7, 2021</a>'
+2021-12-07 14:23:13,717 127.0.0.1 - - [07/Dec/2021 14:23:13] "GET /index?notif=%3Ca+href%3Dhttps%3A%2F%2Fkhn.org%2Fmorning-briefing%2Ftuesday-december-7-2021%2F%3ETuesday%2C+December+7%2C+2021%3C%2Fa%3E HTTP/1.1" 200 -
+2021-12-07 14:23:13,761 127.0.0.1 - - [07/Dec/2021 14:23:13] "[33mGET /static/images/ HTTP/1.1[0m" 404 -
+2021-12-07 14:23:13,805 127.0.0.1 - - [07/Dec/2021 14:23:13] "[33mGET /static/images/ HTTP/1.1[0m" 404 -
+2021-12-07 14:23:22,931 Deletion request for article '<a href=https://www.theverge.com/2021/12/7/22821823/joe-rogan-media-matters-hot-pod-spotify-moderation>What you learn after 350 hours of Joe Rogan</a>'
+2021-12-07 14:23:22,931 Deleted article with title '<a href=https://www.theverge.com/2021/12/7/22821823/joe-rogan-media-matters-hot-pod-spotify-moderation>What you learn after 350 hours of Joe Rogan</a>'
+2021-12-07 14:23:22,931 127.0.0.1 - - [07/Dec/2021 14:23:22] "GET /index?notif=%3Ca+href%3Dhttps%3A%2F%2Fwww.theverge.com%2F2021%2F12%2F7%2F22821823%2Fjoe-rogan-media-matters-hot-pod-spotify-moderation%3EWhat+you+learn+after+350+hours+of+Joe+Rogan%3C%2Fa%3E HTTP/1.1" 200 -
+2021-12-07 14:23:22,973 127.0.0.1 - - [07/Dec/2021 14:23:22] "[33mGET /static/images/ HTTP/1.1[0m" 404 -
+2021-12-07 14:23:23,020 127.0.0.1 - - [07/Dec/2021 14:23:23] "[33mGET /static/images/ HTTP/1.1[0m" 404 -
+2021-12-07 14:24:23,106 127.0.0.1 - - [07/Dec/2021 14:24:23] "GET /index HTTP/1.1" 200 -
+2021-12-07 14:24:23,160 127.0.0.1 - - [07/Dec/2021 14:24:23] "[33mGET /static/images/ HTTP/1.1[0m" 404 -
+2021-12-07 14:24:23,327 127.0.0.1 - - [07/Dec/2021 14:24:23] "[33mGET /static/images/ HTTP/1.1[0m" 404 -
+2021-12-07 14:25:23,362 127.0.0.1 - - [07/Dec/2021 14:25:23] "GET /index HTTP/1.1" 200 -
+2021-12-07 14:25:23,394 127.0.0.1 - - [07/Dec/2021 14:25:23] "[33mGET /static/images/ HTTP/1.1[0m" 404 -
+2021-12-07 14:25:23,811 127.0.0.1 - - [07/Dec/2021 14:25:23] "[33mGET /static/images/ HTTP/1.1[0m" 404 -
+2021-12-07 14:26:23,860 127.0.0.1 - - [07/Dec/2021 14:26:23] "GET /index HTTP/1.1" 200 -
+2021-12-07 14:26:23,907 127.0.0.1 - - [07/Dec/2021 14:26:23] "[33mGET /static/images/ HTTP/1.1[0m" 404 -
+2021-12-07 14:26:24,059 127.0.0.1 - - [07/Dec/2021 14:26:24] "[33mGET /static/images/ HTTP/1.1[0m" 404 -
+2021-12-07 14:27:05,596 
+
+Web server initialised
+2021-12-07 14:27:05,596 Initialising news articles
+2021-12-07 14:27:05,596 Starting new HTTPS connection (1): newsapi.org:443
+2021-12-07 14:27:06,198 https://newsapi.org:443 "GET /v2/everything?q=covid%20COVID-19%20coronavirus&apiKey=ebefae8e017548f28a16851a36812ef5&sortBy=publishedAt&language=en HTTP/1.1" 200 None
+2021-12-07 14:27:06,198 Starting new HTTPS connection (1): newsapi.org:443
+2021-12-07 14:27:06,700 https://newsapi.org:443 "GET /v2/everything?q=Covid%20COVID-19%20coronavirus&apiKey=ebefae8e017548f28a16851a36812ef5&sortBy=publishedAt&language=en HTTP/1.1" 200 None
+2021-12-07 14:27:06,700 Initialising COVID data
+2021-12-07 14:27:06,700 Starting new HTTPS connection (1): api.coronavirus.data.gov.uk:443
+2021-12-07 14:27:07,086 https://api.coronavirus.data.gov.uk:443 "GET /v1/data?filters=areaType%3Dltla%3BareaName%3Dexeter&structure=%7B%22date%22%3A%22date%22%2C%22areaType%22%3A%22areaType%22%2C%22areaName%22%3A%22areaName%22%2C%22newCases%22%3A%22newCasesBySpecimenDate%22%7D&format=json&page=1 HTTP/1.1" 200 None
+2021-12-07 14:27:07,101 Starting new HTTPS connection (1): api.coronavirus.data.gov.uk:443
+2021-12-07 14:27:07,302 https://api.coronavirus.data.gov.uk:443 "GET /v1/data?filters=areaType%3Dltla%3BareaName%3Dexeter&structure=%7B%22date%22%3A%22date%22%2C%22areaType%22%3A%22areaType%22%2C%22areaName%22%3A%22areaName%22%2C%22newCases%22%3A%22newCasesBySpecimenDate%22%7D&format=json&page=2 HTTP/1.1" 204 0
+2021-12-07 14:27:07,318 Starting new HTTPS connection (1): api.coronavirus.data.gov.uk:443
+2021-12-07 14:27:07,418 https://api.coronavirus.data.gov.uk:443 "GET /v1/data?filters=areaType%3Dnation%3BareaName%3Dengland&structure=%7B%22date%22%3A%22date%22%2C%22areaType%22%3A%22areaType%22%2C%22areaName%22%3A%22areaName%22%2C%22newCases%22%3A%22newCasesByPublishDate%22%2C%22hospitalCases%22%3A%22hospitalCases%22%2C%22cumDeaths%22%3A%22cumDailyNsoDeathsByDeathDate%22%7D&format=json&page=1 HTTP/1.1" 200 None
+2021-12-07 14:27:07,418 Starting new HTTPS connection (1): api.coronavirus.data.gov.uk:443
+2021-12-07 14:27:07,750 https://api.coronavirus.data.gov.uk:443 "GET /v1/data?filters=areaType%3Dnation%3BareaName%3Dengland&structure=%7B%22date%22%3A%22date%22%2C%22areaType%22%3A%22areaType%22%2C%22areaName%22%3A%22areaName%22%2C%22newCases%22%3A%22newCasesByPublishDate%22%2C%22hospitalCases%22%3A%22hospitalCases%22%2C%22cumDeaths%22%3A%22cumDailyNsoDeathsByDeathDate%22%7D&format=json&page=2 HTTP/1.1" 204 0
+2021-12-07 14:27:07,766  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+2021-12-07 14:27:13,081 127.0.0.1 - - [07/Dec/2021 14:27:13] "GET /index HTTP/1.1" 200 -
+2021-12-07 14:27:13,134 127.0.0.1 - - [07/Dec/2021 14:27:13] "[33mGET /static/images/ HTTP/1.1[0m" 404 -
+2021-12-07 14:27:13,166 127.0.0.1 - - [07/Dec/2021 14:27:13] "[33mGET /static/images/ HTTP/1.1[0m" 404 -
+2021-12-07 14:27:13,203 127.0.0.1 - - [07/Dec/2021 14:27:13] "[33mGET /coronavirus_icon.png HTTP/1.1[0m" 404 -
+2021-12-07 14:27:14,671 127.0.0.1 - - [07/Dec/2021 14:27:14] "GET /index HTTP/1.1" 200 -
+2021-12-07 14:27:14,724 127.0.0.1 - - [07/Dec/2021 14:27:14] "[33mGET /static/images/ HTTP/1.1[0m" 404 -
+2021-12-07 14:27:14,755 127.0.0.1 - - [07/Dec/2021 14:27:14] "[33mGET /static/images/ HTTP/1.1[0m" 404 -
+2021-12-07 14:27:15,944 127.0.0.1 - - [07/Dec/2021 14:27:15] "GET /index HTTP/1.1" 200 -
+2021-12-07 14:27:15,991 127.0.0.1 - - [07/Dec/2021 14:27:15] "[33mGET /static/images/ HTTP/1.1[0m" 404 -
+2021-12-07 14:27:16,044 127.0.0.1 - - [07/Dec/2021 14:27:16] "[33mGET /static/images/ HTTP/1.1[0m" 404 -
+2021-12-07 14:27:19,138 127.0.0.1 - - [07/Dec/2021 14:27:19] "GET /index HTTP/1.1" 200 -
+2021-12-07 14:28:16,110 127.0.0.1 - - [07/Dec/2021 14:28:16] "GET /index HTTP/1.1" 200 -
+2021-12-07 14:28:16,223 127.0.0.1 - - [07/Dec/2021 14:28:16] "[33mGET /static/images/ HTTP/1.1[0m" 404 -
+2021-12-07 14:28:16,440 127.0.0.1 - - [07/Dec/2021 14:28:16] "[33mGET /static/images/ HTTP/1.1[0m" 404 -
+2021-12-07 14:28:16,556 127.0.0.1 - - [07/Dec/2021 14:28:16] "[33mGET /coronavirus_icon.png HTTP/1.1[0m" 404 -
+2021-12-07 14:29:16,590 127.0.0.1 - - [07/Dec/2021 14:29:16] "GET /index HTTP/1.1" 200 -
+2021-12-07 14:29:16,651 127.0.0.1 - - [07/Dec/2021 14:29:16] "[33mGET /static/images/ HTTP/1.1[0m" 404 -
+2021-12-07 14:29:16,787 127.0.0.1 - - [07/Dec/2021 14:29:16] "[33mGET /static/images/ HTTP/1.1[0m" 404 -
+2021-12-07 14:29:27,572 
+
+Web server initialised
+2021-12-07 14:29:27,575 Initialising news articles
+2021-12-07 14:29:27,579 Starting new HTTPS connection (1): newsapi.org:443
+2021-12-07 14:29:28,088 https://newsapi.org:443 "GET /v2/everything?q=covid%20COVID-19%20coronavirus&apiKey=ebefae8e017548f28a16851a36812ef5&sortBy=publishedAt&language=en HTTP/1.1" 200 None
+2021-12-07 14:29:28,092 Starting new HTTPS connection (1): newsapi.org:443
+2021-12-07 14:29:28,689 https://newsapi.org:443 "GET /v2/everything?q=Covid%20COVID-19%20coronavirus&apiKey=ebefae8e017548f28a16851a36812ef5&sortBy=publishedAt&language=en HTTP/1.1" 200 None
+2021-12-07 14:29:28,689 Initialising COVID data
+2021-12-07 14:29:28,693 Starting new HTTPS connection (1): api.coronavirus.data.gov.uk:443
+2021-12-07 14:29:28,819 https://api.coronavirus.data.gov.uk:443 "GET /v1/data?filters=areaType%3Dltla%3BareaName%3Dexeter&structure=%7B%22date%22%3A%22date%22%2C%22areaType%22%3A%22areaType%22%2C%22areaName%22%3A%22areaName%22%2C%22newCases%22%3A%22newCasesBySpecimenDate%22%7D&format=json&page=1 HTTP/1.1" 200 None
+2021-12-07 14:29:28,823 Starting new HTTPS connection (1): api.coronavirus.data.gov.uk:443
+2021-12-07 14:29:29,004 https://api.coronavirus.data.gov.uk:443 "GET /v1/data?filters=areaType%3Dltla%3BareaName%3Dexeter&structure=%7B%22date%22%3A%22date%22%2C%22areaType%22%3A%22areaType%22%2C%22areaName%22%3A%22areaName%22%2C%22newCases%22%3A%22newCasesBySpecimenDate%22%7D&format=json&page=2 HTTP/1.1" 204 0
+2021-12-07 14:29:29,008 Starting new HTTPS connection (1): api.coronavirus.data.gov.uk:443
+2021-12-07 14:29:29,118 https://api.coronavirus.data.gov.uk:443 "GET /v1/data?filters=areaType%3Dnation%3BareaName%3Dengland&structure=%7B%22date%22%3A%22date%22%2C%22areaType%22%3A%22areaType%22%2C%22areaName%22%3A%22areaName%22%2C%22newCases%22%3A%22newCasesByPublishDate%22%2C%22hospitalCases%22%3A%22hospitalCases%22%2C%22cumDeaths%22%3A%22cumDailyNsoDeathsByDeathDate%22%7D&format=json&page=1 HTTP/1.1" 200 None
+2021-12-07 14:29:29,122 Starting new HTTPS connection (1): api.coronavirus.data.gov.uk:443
+2021-12-07 14:29:29,366 https://api.coronavirus.data.gov.uk:443 "GET /v1/data?filters=areaType%3Dnation%3BareaName%3Dengland&structure=%7B%22date%22%3A%22date%22%2C%22areaType%22%3A%22areaType%22%2C%22areaName%22%3A%22areaName%22%2C%22newCases%22%3A%22newCasesByPublishDate%22%2C%22hospitalCases%22%3A%22hospitalCases%22%2C%22cumDeaths%22%3A%22cumDailyNsoDeathsByDeathDate%22%7D&format=json&page=2 HTTP/1.1" 204 0
+2021-12-07 14:29:29,370  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+2021-12-07 14:29:30,062 127.0.0.1 - - [07/Dec/2021 14:29:30] "GET /index HTTP/1.1" 200 -
+2021-12-07 14:29:30,110 127.0.0.1 - - [07/Dec/2021 14:29:30] "[33mGET /static/images/coronavirus_icon.png HTTP/1.1[0m" 404 -
+2021-12-07 14:29:30,166 127.0.0.1 - - [07/Dec/2021 14:29:30] "[33mGET /static/images/coronavirus_icon.png HTTP/1.1[0m" 404 -
+2021-12-07 14:29:30,218 127.0.0.1 - - [07/Dec/2021 14:29:30] "[33mGET /coronavirus_favicon.png HTTP/1.1[0m" 404 -
+2021-12-07 14:29:31,152 127.0.0.1 - - [07/Dec/2021 14:29:31] "GET /index HTTP/1.1" 200 -
+2021-12-07 14:29:31,204 127.0.0.1 - - [07/Dec/2021 14:29:31] "[33mGET /static/images/coronavirus_icon.png HTTP/1.1[0m" 404 -
+2021-12-07 14:29:31,264 127.0.0.1 - - [07/Dec/2021 14:29:31] "[33mGET /static/images/coronavirus_icon.png HTTP/1.1[0m" 404 -
+2021-12-07 14:30:31,369 127.0.0.1 - - [07/Dec/2021 14:30:31] "GET /index HTTP/1.1" 200 -
+2021-12-07 14:30:31,447 127.0.0.1 - - [07/Dec/2021 14:30:31] "[33mGET /static/images/coronavirus_icon.png HTTP/1.1[0m" 404 -
+2021-12-07 14:30:31,598 127.0.0.1 - - [07/Dec/2021 14:30:31] "[33mGET /static/images/coronavirus_icon.png HTTP/1.1[0m" 404 -
+2021-12-07 14:33:32,114 
+
+Web server initialised
+2021-12-07 14:33:32,114 Initialising news articles
+2021-12-07 14:33:32,130 Starting new HTTPS connection (1): newsapi.org:443
+2021-12-07 14:33:32,393 https://newsapi.org:443 "GET /v2/everything?q=covid%20COVID-19%20coronavirus&apiKey=ebefae8e017548f28a16851a36812ef5&sortBy=publishedAt&language=en HTTP/1.1" 200 None
+2021-12-07 14:33:32,393 Starting new HTTPS connection (1): newsapi.org:443
+2021-12-07 14:33:32,563 https://newsapi.org:443 "GET /v2/everything?q=Covid%20COVID-19%20coronavirus&apiKey=ebefae8e017548f28a16851a36812ef5&sortBy=publishedAt&language=en HTTP/1.1" 200 None
+2021-12-07 14:33:32,578 Initialising COVID data
+2021-12-07 14:33:32,578 Starting new HTTPS connection (1): api.coronavirus.data.gov.uk:443
+2021-12-07 14:33:32,710 https://api.coronavirus.data.gov.uk:443 "GET /v1/data?filters=areaType%3Dltla%3BareaName%3Dexeter&structure=%7B%22date%22%3A%22date%22%2C%22areaType%22%3A%22areaType%22%2C%22areaName%22%3A%22areaName%22%2C%22newCases%22%3A%22newCasesBySpecimenDate%22%7D&format=json&page=1 HTTP/1.1" 200 None
+2021-12-07 14:33:32,710 Starting new HTTPS connection (1): api.coronavirus.data.gov.uk:443
+2021-12-07 14:33:32,916 https://api.coronavirus.data.gov.uk:443 "GET /v1/data?filters=areaType%3Dltla%3BareaName%3Dexeter&structure=%7B%22date%22%3A%22date%22%2C%22areaType%22%3A%22areaType%22%2C%22areaName%22%3A%22areaName%22%2C%22newCases%22%3A%22newCasesBySpecimenDate%22%7D&format=json&page=2 HTTP/1.1" 204 0
+2021-12-07 14:33:32,931 Starting new HTTPS connection (1): api.coronavirus.data.gov.uk:443
+2021-12-07 14:33:33,032 https://api.coronavirus.data.gov.uk:443 "GET /v1/data?filters=areaType%3Dnation%3BareaName%3Dengland&structure=%7B%22date%22%3A%22date%22%2C%22areaType%22%3A%22areaType%22%2C%22areaName%22%3A%22areaName%22%2C%22newCases%22%3A%22newCasesByPublishDate%22%2C%22hospitalCases%22%3A%22hospitalCases%22%2C%22cumDeaths%22%3A%22cumDailyNsoDeathsByDeathDate%22%7D&format=json&page=1 HTTP/1.1" 200 None
+2021-12-07 14:33:33,032 Starting new HTTPS connection (1): api.coronavirus.data.gov.uk:443
+2021-12-07 14:33:33,280 https://api.coronavirus.data.gov.uk:443 "GET /v1/data?filters=areaType%3Dnation%3BareaName%3Dengland&structure=%7B%22date%22%3A%22date%22%2C%22areaType%22%3A%22areaType%22%2C%22areaName%22%3A%22areaName%22%2C%22newCases%22%3A%22newCasesByPublishDate%22%2C%22hospitalCases%22%3A%22hospitalCases%22%2C%22cumDeaths%22%3A%22cumDailyNsoDeathsByDeathDate%22%7D&format=json&page=2 HTTP/1.1" 204 0
+2021-12-07 14:33:33,280  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+2021-12-07 14:33:47,873 
+
+Web server initialised
+2021-12-07 14:33:47,888 Initialising news articles
+2021-12-07 14:33:47,888 Starting new HTTPS connection (1): newsapi.org:443
+2021-12-07 14:33:48,406 https://newsapi.org:443 "GET /v2/everything?q=covid%20COVID-19%20coronavirus&apiKey=ebefae8e017548f28a16851a36812ef5&sortBy=publishedAt&language=en HTTP/1.1" 200 None
+2021-12-07 14:33:48,421 Starting new HTTPS connection (1): newsapi.org:443
+2021-12-07 14:33:48,575 https://newsapi.org:443 "GET /v2/everything?q=Covid%20COVID-19%20coronavirus&apiKey=ebefae8e017548f28a16851a36812ef5&sortBy=publishedAt&language=en HTTP/1.1" 200 None
+2021-12-07 14:33:48,575 Initialising COVID data
+2021-12-07 14:33:48,591 Starting new HTTPS connection (1): api.coronavirus.data.gov.uk:443
+2021-12-07 14:33:48,707 https://api.coronavirus.data.gov.uk:443 "GET /v1/data?filters=areaType%3Dltla%3BareaName%3Dexeter&structure=%7B%22date%22%3A%22date%22%2C%22areaType%22%3A%22areaType%22%2C%22areaName%22%3A%22areaName%22%2C%22newCases%22%3A%22newCasesBySpecimenDate%22%7D&format=json&page=1 HTTP/1.1" 200 None
+2021-12-07 14:33:48,707 Starting new HTTPS connection (1): api.coronavirus.data.gov.uk:443
+2021-12-07 14:33:48,792 https://api.coronavirus.data.gov.uk:443 "GET /v1/data?filters=areaType%3Dltla%3BareaName%3Dexeter&structure=%7B%22date%22%3A%22date%22%2C%22areaType%22%3A%22areaType%22%2C%22areaName%22%3A%22areaName%22%2C%22newCases%22%3A%22newCasesBySpecimenDate%22%7D&format=json&page=2 HTTP/1.1" 204 0
+2021-12-07 14:33:48,807 Starting new HTTPS connection (1): api.coronavirus.data.gov.uk:443
+2021-12-07 14:33:48,892 https://api.coronavirus.data.gov.uk:443 "GET /v1/data?filters=areaType%3Dnation%3BareaName%3Dengland&structure=%7B%22date%22%3A%22date%22%2C%22areaType%22%3A%22areaType%22%2C%22areaName%22%3A%22areaName%22%2C%22newCases%22%3A%22newCasesByPublishDate%22%2C%22hospitalCases%22%3A%22hospitalCases%22%2C%22cumDeaths%22%3A%22cumDailyNsoDeathsByDeathDate%22%7D&format=json&page=1 HTTP/1.1" 200 None
+2021-12-07 14:33:48,892 Starting new HTTPS connection (1): api.coronavirus.data.gov.uk:443
+2021-12-07 14:33:48,992 https://api.coronavirus.data.gov.uk:443 "GET /v1/data?filters=areaType%3Dnation%3BareaName%3Dengland&structure=%7B%22date%22%3A%22date%22%2C%22areaType%22%3A%22areaType%22%2C%22areaName%22%3A%22areaName%22%2C%22newCases%22%3A%22newCasesByPublishDate%22%2C%22hospitalCases%22%3A%22hospitalCases%22%2C%22cumDeaths%22%3A%22cumDailyNsoDeathsByDeathDate%22%7D&format=json&page=2 HTTP/1.1" 204 0
+2021-12-07 14:33:48,992  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+2021-12-07 14:34:07,578 
+
+Web server initialised
+2021-12-07 14:34:07,578 Initialising news articles
+2021-12-07 14:34:07,578 Starting new HTTPS connection (1): newsapi.org:443
+2021-12-07 14:34:07,748 https://newsapi.org:443 "GET /v2/everything?q=covid%20COVID-19%20coronavirus&apiKey=ebefae8e017548f28a16851a36812ef5&sortBy=publishedAt&language=en HTTP/1.1" 200 None
+2021-12-07 14:34:07,763 Starting new HTTPS connection (1): newsapi.org:443
+2021-12-07 14:34:08,319 https://newsapi.org:443 "GET /v2/everything?q=Covid%20COVID-19%20coronavirus&apiKey=ebefae8e017548f28a16851a36812ef5&sortBy=publishedAt&language=en HTTP/1.1" 200 None
+2021-12-07 14:34:08,319 Initialising COVID data
+2021-12-07 14:34:08,319 Starting new HTTPS connection (1): api.coronavirus.data.gov.uk:443
+2021-12-07 14:34:08,435 https://api.coronavirus.data.gov.uk:443 "GET /v1/data?filters=areaType%3Dltla%3BareaName%3Dexeter&structure=%7B%22date%22%3A%22date%22%2C%22areaType%22%3A%22areaType%22%2C%22areaName%22%3A%22areaName%22%2C%22newCases%22%3A%22newCasesBySpecimenDate%22%7D&format=json&page=1 HTTP/1.1" 200 None
+2021-12-07 14:34:08,435 Starting new HTTPS connection (1): api.coronavirus.data.gov.uk:443
+2021-12-07 14:34:08,551 https://api.coronavirus.data.gov.uk:443 "GET /v1/data?filters=areaType%3Dltla%3BareaName%3Dexeter&structure=%7B%22date%22%3A%22date%22%2C%22areaType%22%3A%22areaType%22%2C%22areaName%22%3A%22areaName%22%2C%22newCases%22%3A%22newCasesBySpecimenDate%22%7D&format=json&page=2 HTTP/1.1" 204 0
+2021-12-07 14:34:08,551 Starting new HTTPS connection (1): api.coronavirus.data.gov.uk:443
+2021-12-07 14:34:08,651 https://api.coronavirus.data.gov.uk:443 "GET /v1/data?filters=areaType%3Dnation%3BareaName%3Dengland&structure=%7B%22date%22%3A%22date%22%2C%22areaType%22%3A%22areaType%22%2C%22areaName%22%3A%22areaName%22%2C%22newCases%22%3A%22newCasesByPublishDate%22%2C%22hospitalCases%22%3A%22hospitalCases%22%2C%22cumDeaths%22%3A%22cumDailyNsoDeathsByDeathDate%22%7D&format=json&page=1 HTTP/1.1" 200 None
+2021-12-07 14:34:08,651 Starting new HTTPS connection (1): api.coronavirus.data.gov.uk:443
+2021-12-07 14:34:08,752 https://api.coronavirus.data.gov.uk:443 "GET /v1/data?filters=areaType%3Dnation%3BareaName%3Dengland&structure=%7B%22date%22%3A%22date%22%2C%22areaType%22%3A%22areaType%22%2C%22areaName%22%3A%22areaName%22%2C%22newCases%22%3A%22newCasesByPublishDate%22%2C%22hospitalCases%22%3A%22hospitalCases%22%2C%22cumDeaths%22%3A%22cumDailyNsoDeathsByDeathDate%22%7D&format=json&page=2 HTTP/1.1" 204 0
+2021-12-07 14:34:08,752  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+2021-12-07 14:34:12,813 
+
+Web server initialised
+2021-12-07 14:34:12,813 Initialising news articles
+2021-12-07 14:34:12,820 Starting new HTTPS connection (1): newsapi.org:443
+2021-12-07 14:35:37,167 
+
+Web server initialised
+2021-12-07 14:35:37,167 Initialising news articles
+2021-12-07 14:35:37,173 Starting new HTTPS connection (1): newsapi.org:443
+2021-12-07 14:35:37,679 https://newsapi.org:443 "GET /v2/everything?q=covid%20COVID-19%20coronavirus&apiKey=ebefae8e017548f28a16851a36812ef5&sortBy=publishedAt&language=en HTTP/1.1" 200 None
+2021-12-07 14:35:37,685 Starting new HTTPS connection (1): newsapi.org:443
+2021-12-07 14:35:38,296 https://newsapi.org:443 "GET /v2/everything?q=Covid%20COVID-19%20coronavirus&apiKey=ebefae8e017548f28a16851a36812ef5&sortBy=publishedAt&language=en HTTP/1.1" 200 None
+2021-12-07 14:35:38,296 Initialising COVID data
+2021-12-07 14:35:38,299 Starting new HTTPS connection (1): api.coronavirus.data.gov.uk:443
+2021-12-07 14:35:38,428 https://api.coronavirus.data.gov.uk:443 "GET /v1/data?filters=areaType%3Dltla%3BareaName%3Dexeter&structure=%7B%22date%22%3A%22date%22%2C%22areaType%22%3A%22areaType%22%2C%22areaName%22%3A%22areaName%22%2C%22newCases%22%3A%22newCasesBySpecimenDate%22%7D&format=json&page=1 HTTP/1.1" 200 None
+2021-12-07 14:35:38,430 Starting new HTTPS connection (1): api.coronavirus.data.gov.uk:443
+2021-12-07 14:35:38,736 https://api.coronavirus.data.gov.uk:443 "GET /v1/data?filters=areaType%3Dltla%3BareaName%3Dexeter&structure=%7B%22date%22%3A%22date%22%2C%22areaType%22%3A%22areaType%22%2C%22areaName%22%3A%22areaName%22%2C%22newCases%22%3A%22newCasesBySpecimenDate%22%7D&format=json&page=2 HTTP/1.1" 204 0
+2021-12-07 14:35:38,742 Starting new HTTPS connection (1): api.coronavirus.data.gov.uk:443
+2021-12-07 14:35:38,845 https://api.coronavirus.data.gov.uk:443 "GET /v1/data?filters=areaType%3Dnation%3BareaName%3Dengland&structure=%7B%22date%22%3A%22date%22%2C%22areaType%22%3A%22areaType%22%2C%22areaName%22%3A%22areaName%22%2C%22newCases%22%3A%22newCasesByPublishDate%22%2C%22hospitalCases%22%3A%22hospitalCases%22%2C%22cumDeaths%22%3A%22cumDailyNsoDeathsByDeathDate%22%7D&format=json&page=1 HTTP/1.1" 200 None
+2021-12-07 14:35:38,851 Starting new HTTPS connection (1): api.coronavirus.data.gov.uk:443
+2021-12-07 14:35:39,042 https://api.coronavirus.data.gov.uk:443 "GET /v1/data?filters=areaType%3Dnation%3BareaName%3Dengland&structure=%7B%22date%22%3A%22date%22%2C%22areaType%22%3A%22areaType%22%2C%22areaName%22%3A%22areaName%22%2C%22newCases%22%3A%22newCasesByPublishDate%22%2C%22hospitalCases%22%3A%22hospitalCases%22%2C%22cumDeaths%22%3A%22cumDailyNsoDeathsByDeathDate%22%7D&format=json&page=2 HTTP/1.1" 204 0
+2021-12-07 14:35:39,048  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)

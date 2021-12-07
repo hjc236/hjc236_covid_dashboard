@@ -1,4 +1,4 @@
-from covid_news_handling import news_API_request, format_news_data, update_news
+from hjc236_covid_dashboard.covid_news_handling import news_API_request, format_news_data, update_news
 
 
 def test_news_API_request():

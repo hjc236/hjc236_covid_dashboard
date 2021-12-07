@@ -1,5 +1,5 @@
 import requests
-from config_handler import get_config_data
+from hjc236_covid_dashboard.config_handler import get_config_data, ConfigError
 import logging
 from flask import Markup
 
@@ -16,6 +16,13 @@ def news_API_request(covid_terms: str = "covid COVID-19 coronavirus") -> list[di
     formatted_url = endpoint + f"q={covid_terms}" + f"&apiKey={api_key}" + "&sortBy=publishedAt" + f"&language={lang}"
     response = requests.get(formatted_url, timeout=10)
     news_data = response.json()
+
+    if news_data["status"] == "error":
+        if news_data["code"] == "apiKeyInvalid":
+            raise ConfigError("Invalid News API key in configuration file")
+        else:
+            logging.error("Failed to get articles from News API")
+
     news_data = news_data["articles"]
     return news_data
 
