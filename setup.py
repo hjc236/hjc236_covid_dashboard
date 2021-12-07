@@ -16,7 +16,7 @@ setup(
     author = 'hjc236',
     author_email = '',
     url = 'https://github.com/hjc236/hjc236_covid_dashboard',
-    download_url = 'https://github.com/hjc236/hjc236_covid_dashboard/archive/refs/tags/v0.2.2.tar.gz',
+    download_url = 'https://github.com/hjc236/hjc236_covid_dashboard/archive/refs/tags/v1.0.tar.gz',
     keywords = ['coronavirus', 'event-driven', 'dashboard'],
     install_requires=[
         'uk_covid19',
