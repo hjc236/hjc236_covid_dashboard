@@ -51,7 +51,7 @@ The ```config.json```  file can be edited to customise the dashboard. Configurat
 ```repeat_interval_seconds```: The amount of time before a repeating update repeats itself, in seconds. Default is ```86400``` which is 24 hours.
 
 ## FAQ
-#####I am getting the error: *'news_api_key has not been set in config file'*
+##### I am getting the error: *'news_api_key has not been set in config file'*
 You need to register for an account at https://newsapi.org/ and insert your API key in the ```news_api_key``` field in the ```config.json``` file.
 
 #### I am getting the error: *'Invalid News API key in configuration file'*
