@@ -7,7 +7,7 @@ hjc236_covid_dashboard is a python project which generates a web dashboard with 
 Use the package manager [pip](https://pip.pypa.io/en/stable/) to install hjc236_covid_dashboard.
 
 ```bash
-pip install hjc236_covid-dashboard
+pip install hjc236_covid_dashboard
 ```
 
 ## Usage
