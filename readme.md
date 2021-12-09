@@ -76,12 +76,12 @@ This means that pytest should be installed on your machine. If you do not have p
 ```bash
 pip install pytest
 ```
-Then navigate to the folder containing the hjc_236_covid_dashboard directory, and run pytest.
+Then navigate to the hjc236_covid_dashboard directory within the package's folder, and run pytest.
 ```bash
-cd <file containing the hjc236_covid_dashboard directory>
+cd <path to project files>/hjc236_covid_dashboard
 python -m pytest
 ```
-**Note that you MUST run ```python -m pytest``` and not simply ```pytest``` or the tests will not run successfully.**
+**Note that you MUST run ```python -m pytest``` and not simply ```pytest``` from within this directory or the tests will not run successfully.**
 
 
 
