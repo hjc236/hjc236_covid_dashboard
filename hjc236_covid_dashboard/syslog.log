@@ -23,3 +23,7 @@ Web server initialised
 2021-12-08 17:10:40,224 Starting new HTTPS connection (1): api.coronavirus.data.gov.uk:443
 2021-12-08 17:10:40,457 https://api.coronavirus.data.gov.uk:443 "GET /v1/data?filters=areaType%3Dnation%3BareaName%3Dengland&structure=%7B%22date%22%3A%22date%22%2C%22areaType%22%3A%22areaType%22%2C%22areaName%22%3A%22areaName%22%2C%22newCases%22%3A%22newCasesByPublishDate%22%2C%22hospitalCases%22%3A%22hospitalCases%22%2C%22cumDeaths%22%3A%22cumDailyNsoDeathsByDeathDate%22%7D&format=json&page=2 HTTP/1.1" 204 0
 2021-12-08 17:10:40,472  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+2021-12-09 13:13:01,603 Initialising news articles
+2021-12-09 13:13:01,608 Starting new HTTPS connection (1): newsapi.org:443
+2021-12-09 13:13:01,966 https://newsapi.org:443 "GET /v2/everything?q=Covid%20COVID-19%20coronavirus&apiKey=ddd&sortBy=publishedAt&language=en HTTP/1.1" 401 162
+2021-12-09 13:13:01,968 Invalid News API key in configuration file

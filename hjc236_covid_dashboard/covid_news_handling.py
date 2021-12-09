@@ -32,11 +32,12 @@ def news_API_request(covid_terms: str = "Covid COVID-19 coronavirus") -> list[di
         if news_data["code"] == "apiKeyInvalid":
             # Because the API key was invalid - put this in news_articles so the user sees it
             logging.error("Invalid News API key in configuration file")
-            raise ConfigError("Invalid News API key in configuration file")
         else:
             # For some other reason - put this in news_articles so the user sees it
             logging.error("Failed to get articles from News API")
-            raise ConfigError("Failed to get articles from News API")
+
+        # Still return the response, in this case it will consist of an error message
+        return news_data
 
     else:
         # News articles are correctly returned from API, get rid of headers and keep 'articles'
