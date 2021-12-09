@@ -89,7 +89,7 @@ def run_scheduled_update(update_name: str, repeat: bool = False, covid: bool = F
 
     logging.info(f"Running scheduled update '{update_name}'")
     if news:
-        update_news(update_name, deleted_articles=deleted_articles, news_container=webpage_news_articles)
+        update_news(update_name)
     if covid:
         update_covid(update_name)
     if repeat:

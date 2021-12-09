@@ -45,7 +45,7 @@ def news_API_request(covid_terms: str = "Covid COVID-19 coronavirus") -> list[di
     return news_data
 
 
-def update_news(update_name: str, deleted_articles: list[dict] = None, news_container: list[dict] = None) -> list[dict]:
+def update_news(update_name: str, deleted_articles: list[dict] = None) -> None:
     """Updates the global webpage_news_articles list with new content from the News API"""
     logging.info(f"Updating news due to update '{update_name}'")
 
@@ -59,11 +59,9 @@ def update_news(update_name: str, deleted_articles: list[dict] = None, news_cont
             if article_dictionary["title"] in deleted_articles:
                 news_data.pop(article_index)
 
-    # If given a structure to update it will update this, this is how it is used for the webpage in main.py
-    if news_container is not None:
-        news_container = format_news_data(news_data)
-
-    return format_news_data(news_data)
+    # webpage_news_articles is the global list of articles in main.py passed to the webpage
+    global webpage_news_articles
+    webpage_news_articles = format_news_data(news_data)
 
 
 def format_news_data(news_articles: list[dict]) -> list[dict]:
