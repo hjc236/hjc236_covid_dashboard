@@ -20,7 +20,7 @@ import os
 
 from uk_covid19 import Cov19API
 
-from hjc236_covid_dashboard.config_handler import get_config_data
+from config_handler import get_config_data
 
 log_file_location = get_config_data()["log_file_path"]
 current_location = os.path.abspath(os.path.dirname(__file__))

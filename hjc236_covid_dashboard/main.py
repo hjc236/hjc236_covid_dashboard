@@ -15,10 +15,10 @@ import logging
 
 from flask import Flask, render_template, request
 
-from hjc236_covid_dashboard.covid_data_handler import covid_API_request, update_covid
-from hjc236_covid_dashboard.covid_news_handling import news_API_request, update_news, format_news_data
-from hjc236_covid_dashboard.time_conversions import hhmm_to_seconds, current_time_seconds
-from hjc236_covid_dashboard.config_handler import get_config_data, validate_config_data
+from covid_data_handler import covid_API_request, update_covid
+from covid_news_handling import news_API_request, update_news, format_news_data
+from time_conversions import hhmm_to_seconds, current_time_seconds
+from config_handler import get_config_data, validate_config_data
 
 log_file_location = get_config_data()["log_file_path"]
 logging.basicConfig(filename=log_file_location, level=logging.DEBUG, format="%(asctime)s %(message)s")

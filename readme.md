@@ -79,8 +79,9 @@ pip install pytest
 Then navigate to the folder containing the hjc_236_covid_dashboard directory, and run pytest.
 ```bash
 cd <file containing the hjc236_covid_dashboard directory>
-pytest
+python -m pytest
 ```
+**Note that you MUST run ```python -m pytest``` and not simply ```pytest``` or the tests will not run successfully.**
 
 
 

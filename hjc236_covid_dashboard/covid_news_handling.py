@@ -10,7 +10,7 @@ Functions:
 import logging
 import requests
 from flask import Markup
-from hjc236_covid_dashboard.config_handler import get_config_data, validate_config_data
+from config_handler import get_config_data, validate_config_data
 
 
 log_file_location = get_config_data()["log_file_path"]
