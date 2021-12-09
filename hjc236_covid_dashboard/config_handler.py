@@ -13,7 +13,12 @@ import json
 import os
 
 def get_config_data() -> dict:
-    """Returns the values from the config file as a dictionary"""
+    """Fetches configuration data from the json file
+
+    Returns:
+        A dict mapping configuration file fields to the values they have been set to in the configuration file
+    """
+
     current_location = os.path.abspath(os.path.dirname(__file__))
     path = os.path.abspath(os.path.join(current_location, 'config.json'))
 
@@ -28,8 +33,16 @@ class ConfigError(Exception):
 
 
 def validate_config_data(config_data: dict) -> None:
-    """Checks that values in the config file are valid - if not, raise an error. This prevents the program running
-    when a user has entered something invalid in the config file."""
+    """Checks that the configuration data is valid.
+
+    Takes a dict of the configuration data and returns a ConfigError if any of the values are invalid
+
+    Args:
+        config_data: A dict containing the configuration data
+
+    Raises:
+        ConfigError: At least one of the values in the given configuration data was incorrect.
+    """
 
     if config_data["news_api_key"] == "":
         raise ConfigError("news_api_key has not been set in config file. You must configure the program with an API "

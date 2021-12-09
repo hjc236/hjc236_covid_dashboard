@@ -29,10 +29,17 @@ logging.basicConfig(filename=path, level=logging.DEBUG, format="%(asctime)s %(me
 
 
 def parse_csv_data(csv_filename: str) -> list[str]:
-    """Returns a list of strings for the rows in a given CSV file.
+    """Parses a CSV file into a list of strings.
 
     NOTE: This is a purely demonstrative function made to fit the specification, actual data handling is done with JSON
+
+    Args:
+        csv_filename: The name of the CSV file
+
+    Returns:
+        A list of strings, where each string is one row of the CSV file.
     """
+
     base_location = os.path.abspath(os.path.dirname( __file__ ))
     file_path = os.path.abspath(os.path.join(base_location, csv_filename))
 
@@ -43,11 +50,17 @@ def parse_csv_data(csv_filename: str) -> list[str]:
 
 
 def process_covid_csv_data(covid_csv_data: list[str]) -> tuple[int, int, int]:
-    """Returns the number of cases over the last 7 days, current number of hospital cases, and cumulative deaths from
-    given COVID data
+    """Processes parsed CSV COVID-19 data into relevant values.
 
-    NOTE: This is a purely demonstrative function made to fit the specification, actual data handling is done with
-    covid_data_handler.process_covid_JSON_data()
+    NOTE: This is a purely demonstrative function made to fit the specification, actual data handling is done with JSON
+
+    Args:
+        covid_csv_data: A list of strings where each string is a single row of a CSV file containing COVID-19 data.
+
+    Returns:
+        The amount of COVID-19 cases in the last 7 days.
+        The current amount of hospitalised COVID-19 cases.
+        The total cumulative amount of COVID-19 related deaths.
     """
 
     # Split CSV rows to create a 2D array.
@@ -65,7 +78,14 @@ def process_covid_csv_data(covid_csv_data: list[str]) -> tuple[int, int, int]:
 
 
 def make_API_call(filters: list[str], structure: dict) -> dict:
-    """Returns a JSON object containing COVID data based on the given filters and structure via the Cov19API"""
+    """Makes an API call via the Cov19API to get up-to-date COVID-19 data.
+
+    Args:
+        filters: A list of the filters to apply when retrieving the data
+        structure: The format the data should be retrieved in
+    Returns:
+        A JSON structure containing the requested COVID-19 data
+    """
     data = Cov19API(filters=filters, structure=structure)
     result = data.get_json()
 
@@ -73,8 +93,19 @@ def make_API_call(filters: list[str], structure: dict) -> dict:
 
 
 def convert_json_data(list_of_dictionaries: list[dict]) -> dict[dict]:
-    """Converts the list of dictionaries returned from the API to a single dictionary, where an item's key is the
-    date of the COVID data, and the value is a dictionary of the remaining metrics"""
+    """Converts a list of dictionaries into a dictionary of dictionaries.
+
+    A list of dictionaries containing COVID-19 data becomes a dictionary of dictionaries containing COVID-19 data, where
+    the key becomes the first value of the old dictionary (the date) and the value becomes a dictionary containing the
+    rest of that entry's data.
+
+    Args:
+        list_of_dictionaries: A list of dictionaries containing COVID-19 data.
+
+    Returns:
+        A dictionary of dictionaries containing COVID-19 data.
+    """
+
 
     dictionary_of_dictionaries = {}
     for i in range(0, len(list_of_dictionaries)):
@@ -86,7 +117,11 @@ def convert_json_data(list_of_dictionaries: list[dict]) -> dict[dict]:
 
 
 def process_covid_json_data(local_json: dict, national_json: dict) -> dict:
-    """Returns a dictionary of specified metrics based on the JSON files of local and national COVID data"""
+    """Returns a dictionary of specified metrics based on the JSON files of local and national COVID data
+
+    The specified metrics are: total cumulative deaths, current hospital cases, the 7-day infection rate for the
+    national data set, and the 7-day infection rate for the local data set
+    """
 
     deaths_total = None
     hospitalCases = None
