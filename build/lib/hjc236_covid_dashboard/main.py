@@ -1,32 +1,45 @@
-from flask import Flask
-from flask import render_template
-from flask import request
-from hjc236_covid_dashboard.covid_data_handler import covid_API_request, update_covid
-from hjc236_covid_dashboard.covid_news_handling import news_API_request, update_news, format_news_data
-from hjc236_covid_dashboard.time_conversions import hhmm_to_seconds, current_time_seconds
-from hjc236_covid_dashboard.config_handler import get_config_data, validate_config_data
+"""
+Creates the dashboard as a webpage via flask, using the data passed in from other modules.
+
+Functions:
+    schedule_update()
+    run_scheduled_update()
+    remove_update_from_update_list()
+    get_event_update_name()
+    web_interface()
+"""
 
 import sched
 import time
 import logging
 
+from flask import Flask, render_template, request
+
+from hjc236_covid_dashboard.covid_data_handler import covid_API_request, update_covid
+from hjc236_covid_dashboard.covid_news_handling import news_API_request, update_news, format_news_data
+from hjc236_covid_dashboard.time_conversions import hhmm_to_seconds, current_time_seconds
+from hjc236_covid_dashboard.config_handler import get_config_data, validate_config_data
+
 log_file_location = get_config_data()["log_file_path"]
 logging.basicConfig(filename=log_file_location, level=logging.DEBUG, format="%(asctime)s %(message)s")
-
-config_data = get_config_data()
-validate_config_data(config_data)
-
-logging.info("\n\nWeb server initialised")
 
 app = Flask(__name__)
 web_scheduler = sched.scheduler(time.time, time.sleep)
 
+# On startup, ensure that the values in the configuration file are valid
+config_data = get_config_data()
+validate_config_data(config_data)
+
+# Initialise news articles
 logging.info("Initialising news articles")
 webpage_news_articles = format_news_data(news_API_request())
-update_news("s")
 deleted_articles = []
+
+# Initialise COVID data
 logging.info("Initialising COVID data")
 webpage_covid_data = covid_API_request()
+
+# Create updates list which contains the updates displayed on the left webpage sidebar
 updates = []
 
 
@@ -68,16 +81,14 @@ def schedule_update(update_time: str, update_name: str, repeat=False, covid=Fals
     })
 
 
-def run_scheduled_update(update_name: str, repeat: bool = False, covid: bool =False, news: bool = False) -> None:
+def run_scheduled_update(update_name: str, repeat: bool = False, covid: bool = False, news: bool = False) -> None:
     """A wrapper function for actually running the update, necessary so that it can re-add itself to the
     scheduler every time it's run if meant to repeat"""
 
     logging.info(f"Running scheduled update '{update_name}'")
     if news:
-        logging.info(f"Updating news due to update '{update_name}'")
         update_news(update_name)
     if covid:
-        logging.info(f"Updating COVID data due to update '{update_name}'")
         update_covid(update_name)
     if repeat:
         # If meant to repeat, every time it runs it adds itself to the scheduler in repeat_interval seconds.
@@ -113,6 +124,30 @@ def get_event_update_name(event: sched.Event) -> str:
     return event_update_name
 
 
+def delete_news_article(article_for_deletion_title: str) -> None:
+    logging.info(f"Deletion request for article '{article_for_deletion_title}'")
+    for article_index, article_dictionary in enumerate(webpage_news_articles):
+        if article_dictionary["title"] == article_for_deletion_title:
+            deleted_article = webpage_news_articles.pop(article_index)
+            deleted_articles.append(article_for_deletion_title)
+            logging.info(f"Deleted article with title '{article_for_deletion_title}'")
+
+
+def delete_update(update_for_deletion_name: str) -> None:
+    logging.info(f"Deletion request for update '{update_for_deletion_name}'")
+
+    # For each item in the web scheduler queue, check if its update name matches the update to be deleted
+    # If so, cancel the event
+    # Doing it by update name instead of event object means repeated updates will also be deleted, as each
+    # repetition creates a different event object but they will keep the same name
+    for event in web_scheduler.queue:
+        if get_event_update_name(event) == update_for_deletion_name:
+            web_scheduler.cancel(event)
+            remove_update_from_update_list(update_for_deletion_name)
+            logging.info(f"Update '{update_for_deletion_name}' has been removed from queue, the new queue is:"
+                         f"\n{web_scheduler.queue}\n")
+
+
 @app.route('/index')
 def web_interface() -> str:
     """The main flask application that runs the webpage"""
@@ -124,78 +159,60 @@ def web_interface() -> str:
     # SCHEDULE UPDATE
     # Only triggers if the user has entered both an update name and time
     if update_time and update_name:
+        # Get all possible settings for the update
+        covid_checkbox = request.args.get("covid-data")
+        news_checkbox = request.args.get("news")
+        repeat_checkbox = request.args.get("repeat")
 
-        if request.args.get("covid-data") == "covid-data":
-            updating_covid = True
-        else:
-            updating_covid = False
+        # Check if they have been set or not, and accordingly set variables
+        updating_covid = (covid_checkbox == "covid-data")
+        updating_news = (news_checkbox == "news")
+        repeat = (repeat_checkbox == "repeat")
 
-        if request.args.get("news") == "news":
-            updating_news = True
-        else:
-            updating_news = False
-
-        if request.args.get("repeat") == "repeat":
-            repeat = True
-        else:
-            repeat = False
-
+        # Schedule an update using these variables
         schedule_update(update_time, update_name, covid=updating_covid, news=updating_news, repeat=repeat)
 
     # DELETE UPDATE
     update_for_deletion_name = request.args.get("update_item")
     if update_for_deletion_name is not None:
-        logging.info(f"Deletion request for update '{update_for_deletion_name}'")
-
-        # For each item in the web scheduler queue, check if its update name matches the update to be deleted
-        # If so, cancel the event
-        # Doing it by update name instead of event object keeps consistency for repeating updates as they share names
-        for event in web_scheduler.queue:
-            if get_event_update_name(event) == update_for_deletion_name:
-                web_scheduler.cancel(event)
-                remove_update_from_update_list(update_for_deletion_name)
-                logging.info(f"Update '{update_for_deletion_name}' has been removed from queue, the new queue is:"
-                             f"\n{web_scheduler.queue}\n")
+        delete_update(update_for_deletion_name)
 
     # DELETE NEWS ARTICLE
     article_for_deletion = request.args.get("notif")
     if article_for_deletion is not None:
-        logging.info(f"Deletion request for article '{article_for_deletion}'")
-        for article_index, article_dictionary in enumerate(webpage_news_articles):
-            if article_dictionary["title"] == article_for_deletion:
-                deleted_article = webpage_news_articles.pop(article_index)
-                deleted_articles.append(article_for_deletion)
-                logging.info(f"Deleted article with title '{article_for_deletion}'")
+        delete_news_article(article_for_deletion)
 
     # Get the amount of articles to display from config.json, default is 5 as any more will extend the page length
     article_amount = get_config_data()["number_of_articles_to_display"]
     article_amount = int(article_amount)
 
+    # User may have used inconsistent capitalisation for in the config file so capitalize to ensure UI consistency
     national_location_formatted = webpage_covid_data["nation_location"].capitalize()
     location_formatted = webpage_covid_data["location"].capitalize()
 
     return render_template("index.html",
-                           title="Daily update",
+                           title="COVID-19 Dashboard",
                            national_7day_infections=webpage_covid_data["national_7day_infections"],
                            local_7day_infections=webpage_covid_data["local_7day_infections"],
+                           location=location_formatted,
+                           nation_location=national_location_formatted,
 
-                           # Capitalise first letter of location names to ensure UI consistency
-                           location=webpage_covid_data["location"].capitalize(),
-                           nation_location=webpage_covid_data["nation_location"].capitalize(),
-
-                           # These have no label on the HTML so the label is passed in on this end
+                           # These have no label in the HTML so the label is passed in on this end
                            deaths_total=f"Total deaths ({national_location_formatted}): "
                                         + f"{webpage_covid_data['deaths_total']}",
 
                            hospital_cases=f"Current hospital cases ({national_location_formatted}): "
                                           + f"{webpage_covid_data['hospitalCases']}",
 
+                           # Only display as many news articles as requested in the config file (default 5)
                            news_articles=webpage_news_articles[0:article_amount],
-                           updates=updates,
 
+                           updates=updates,
                            image="coronavirus_icon.png",
                            )
 
 
+# Run the flask webpage itself
 if __name__ == '__main__':
+    logging.info("\n\nWeb server initialised")
     app.run()

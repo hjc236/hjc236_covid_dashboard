@@ -15,7 +15,7 @@ def test_news_API_request():
 
 def test_update_news():
     try:
-        assert update_news('test')
+        update_news('test')
     except ConfigError:
         # If the program fails here due to a ConfigError, this is because news_api_key has not been set correctly in
         # the config file. This will be excepted, since it is expected behaviour than an error is raised when there is
