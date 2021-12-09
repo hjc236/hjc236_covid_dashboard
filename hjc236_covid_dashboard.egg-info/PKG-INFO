@@ -1,6 +1,6 @@
 Metadata-Version: 2.1
 Name: hjc236-covid-dashboard
-Version: 1.5
+Version: 1.51
 Summary: A python project which generates a web dashboard with COVID-19 data and relevant news articles.
 Home-page: https://github.com/hjc236/hjc236_covid_dashboard/
 Author: hjc236
