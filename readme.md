@@ -1,4 +1,4 @@
-# hjc236-covid-dashboard
+# hjc236_covid_dashboard
 
 hjc236_covid_dashboard is a python project which generates a web dashboard with COVID-19 data and relevant news articles.
 
@@ -34,6 +34,24 @@ Updates can be deleted by pressing the [x] on them in the left sidebar.
 ### Deleting news articles
 Updates can be deleted by pressing the [x] on them in the right sidebar. Deleted news articles will not come back when news is updated.
 
+## COVID-19 Metrics
+*All COVID-19 metrics are taken from the official [gov.uk API](https://coronavirus.data.gov.uk/details/developers-guide)*.
+
+```Local 7-day infection rate in <local area>```: **the amount of COVID-19 cases in the local area over a recent 7-day period.**
+* This will be a 7-day period starting from at least the previous day, because the current day's statistics are likely to be incomplete.
+* The local area can be set in the configuration file.
+
+```National 7-day infection rate in <national area>```: **the amount of COVID-19 cases in the national area over a recent 7-day period.**
+* This will be a 7-day period starting from at least the previous day, because the current day's statistics are likely to be incomplete.
+* The national area can be set in the configuration file.
+
+```Current hospital cases (<national area>)```: **The amount of people currently hospitalised with COVID-19 in the national area**
+* This is the most recent day the API has data for, which is likely to be a few days behind given the time it takes for the government to process the data.
+* The national area can be set in the configuration file.
+
+```Total deaths (<national area>)```: **The cumulative, total amount of COVID-19 related deaths in the national area**
+* This is taken from the most recent total the API has data for, which may be a few days behind.
+
 ## Config
 The ```config.json```  file can be edited to customise the dashboard. Configuration options are:
 
@@ -58,19 +76,18 @@ The ```config.json```  file can be edited to customise the dashboard. Configurat
 
 ## Testing
 The package can be tested by navigating to the file containing the package and running pytest in the terminal.
+This means that pytest should be installed on your machine. If you do not have pytest, you can install it by running:
+
+```bash
+pip install pytest
+```
+Then navigate to the folder containing the hjc_236_covid_dashboard directory, and run pytest.
 ```bash
 cd <file containing the hjc236_covid_dashboard directory>
 pytest
 ```
-This means you must have pytest installed. If you do not, then you can install it with pip.
-```bash
-pip install pytest
-```
 
-**NOTE THAT THE TESTS WILL RETURN ERRORS IF YOU HAVE FAILED TO CORRECTLY CONFIGURE THE PROGRAM WITH A NEWS API KEY.
-THIS IS EXPECTED BEHAVIOUR.**
 
-**You must have registered for a free API key from [News API](https://newsapi.org/), and entered this into the ```config.json``` file, in order to use this program.**
 
 
 ## Troubleshooting
@@ -78,7 +95,7 @@ THIS IS EXPECTED BEHAVIOUR.**
 You need to register for an account at https://newsapi.org/ and insert your API key in the ```news_api_key``` field in the ```config.json``` file.
 
 #### I am getting the error: *'Invalid News API key in configuration file'*
-The API key in the ```config.json``` file is not correct. Ensure you have entered your own API key exactly as it appears on https://newsapi.org/
+The API key in the ```config.json``` file is not correct. Ensure you have entered your own API key exactly as it appears on https://newsapi.org/.
 
 #### Some of the news articles are not relevant to coronavirus
 This is a limitation of the News API. Some articles may not be about Covid-19 directly but if they mention it enough they may still be displayed due to the way the keywords work. You can simply delete the irrelevant articles from the webpage, or try altering the keywords in ```config.json``` yourself
@@ -87,7 +104,10 @@ This is a limitation of the News API. Some articles may not be about Covid-19 di
 This program was made to fit a specification which required the creation of some specific functions. In some cases, the role of these functions has been implemented in a different way and so they were not used. 
 
 #### The COVID-19 data is incorrect
-The data processing functions find the most recent valid values from the API, but this is often a few days behind because collecting the data takes time. All Covid-19 data is taken from the UK government's statistics via the official [API](https://coronavirus.data.gov.uk/details/developers-guide).
+The data processing functions find the most recent valid values from the API, but this is often a few days behind because collecting it takes time to ensure the data is complete.
+
+The 7-day infection rate metrics are always at least one day behind because the data for the most recent day is typically incomplete.
+All Covid-19 data is taken from the UK government's statistics via the official [API](https://coronavirus.data.gov.uk/details/developers-guide).
 
 #### I have another problem
 Try looking at the log file which will have more information about what happened. It is called ```syslog.log```, in the same directory as the python files, unless you have changed this in the configuration file.

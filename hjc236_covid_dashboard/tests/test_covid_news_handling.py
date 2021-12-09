@@ -3,32 +3,36 @@ from hjc236_covid_dashboard.config_handler import ConfigError
 
 
 def test_news_API_request():
-    assert news_API_request()
-    assert news_API_request('Covid COVID-19 coronavirus') == news_API_request()
+    try:
+        assert news_API_request()
+        assert news_API_request('Covid COVID-19 coronavirus') == news_API_request()
+    except ConfigError:
+        # If the program fails here due to a ConfigError, this is because news_api_key has not been set correctly in
+        # the config file. This will be excepted, since it is expected behaviour than an error is raised when there is
+        # no valid API key in config.json.
+        return
 
 
 def test_update_news():
     try:
         assert update_news('test')
-    except TypeError:
-        # TypeError here means that articles have not been returned, probably due to a faulty API key
-        # Normally this would raise a ConfigError but we don't want it to during tests as it is expected behaviour
-        # So it will just be logged
-        pass
+    except ConfigError:
+        # If the program fails here due to a ConfigError, this is because news_api_key has not been set correctly in
+        # the config file. This will be excepted, since it is expected behaviour than an error is raised when there is
+        # no valid API key in config.json.
+        return
 
 
 def test_format_news_data():
-    articles = news_API_request()
-
     try:
         formatted_articles = format_news_data(news_API_request())
-    except TypeError:
-        # TypeError here means that articles have not been returned, probably due to a faulty API key
-        # Normally this would raise a ConfigError but we don't want it to during tests as it is expected behaviour
-        # So just assert that the error did actually come from the lack of a valid API key and not something else
-        assert articles["code"] == "apiKeyInvalid"
+    except ConfigError:
+        # If the program fails here due to a ConfigError, this is because news_api_key has not been set correctly in
+        # the config file. This will be excepted, since it is expected behaviour than an error is raised when there is
+        # no valid API key in config.json.
         return
 
+    # Otherwise, check articles have been formatted correctly.
     for article in formatted_articles:
 
         # Do titles contain URL hyperlinks?

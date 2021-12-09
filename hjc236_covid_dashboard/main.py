@@ -183,7 +183,7 @@ def web_interface() -> str:
     location_formatted = webpage_covid_data["location"].capitalize()
 
     return render_template("index.html",
-                           title="Daily update",
+                           title="COVID-19 Dashboard",
                            national_7day_infections=webpage_covid_data["national_7day_infections"],
                            local_7day_infections=webpage_covid_data["local_7day_infections"],
                            location=location_formatted,
