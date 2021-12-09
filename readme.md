@@ -1,20 +1,15 @@
 # hjc236_covid_dashboard
-
 hjc236_covid_dashboard is a python project which generates a web dashboard with COVID-19 data and relevant news articles.
 
-## Installation
+## Links
+[GitHub](https://github.com/hjc236/hjc236_covid_dashboard)
 
-Use the package manager [pip](https://pip.pypa.io/en/stable/) to install hjc236_covid_dashboard.
+[PyPi](https://pypi.org/manage/project/hjc236-covid-dashboard/releases/)
 
-```
-pip install hjc236_covid_dashboard
-```
-
-Navigate to the ```config.json``` file and add your API key for [News API](https://newsapi.org) in the ```news_API_key``` field.
-
-**The program will not work succesfully unless you have configured it with this API key. If you do not have an API key, you can get one at [this link](https://newsapi.org/docs/get-started).**
 
 ## Usage
+
+**The program will not work successfully unless you have configured it with this API key. If you do not have an API key, you can get one at [this link](https://newsapi.org/docs/get-started).**
 
 ### Starting the dashboard
 * Run ```main.py``` from the terminal.

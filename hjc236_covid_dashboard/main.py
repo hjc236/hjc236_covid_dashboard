@@ -208,7 +208,7 @@ def web_interface() -> str:
                            news_articles=webpage_news_articles[0:article_amount],
 
                            updates=updates,
-                           image="coronavirus_icon.png",
+                           image="/covid_icon.png",
                            )
 
 
