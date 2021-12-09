@@ -10,7 +10,7 @@ Functions:
 import logging
 import requests
 from flask import Markup
-from hjc236_covid_dashboard.config_handler import get_config_data, ConfigError
+from hjc236_covid_dashboard.config_handler import get_config_data, validate_config_data
 
 
 log_file_location = get_config_data()["log_file_path"]
@@ -18,9 +18,10 @@ logging.basicConfig(filename=log_file_location, level=logging.DEBUG, format="%(a
 
 
 def news_API_request(covid_terms: str = "Covid COVID-19 coronavirus") -> list[dict]:
+    config_data = get_config_data()
+    validate_config_data(config_data)
     """Returns relevant current news articles from the News API based on the covid_terms argument"""
-    # TODO handle connection errors
-    api_key = get_config_data()["news_api_key"]
+    api_key = config_data["news_api_key"]
     endpoint = "https://newsapi.org/v2/everything?"
     lang = get_config_data()["news_language"]
     formatted_url = endpoint + f"q={covid_terms}" + f"&apiKey={api_key}" + "&sortBy=publishedAt" + f"&language={lang}"
@@ -30,10 +31,10 @@ def news_API_request(covid_terms: str = "Covid COVID-19 coronavirus") -> list[di
     if news_data["status"] == "error":
         # News articles are not returned from API...
         if news_data["code"] == "apiKeyInvalid":
-            # Because the API key was invalid - put this in news_articles so the user sees it
+            # Because the API key was invalid
             logging.error("Invalid News API key in configuration file")
         else:
-            # For some other reason - put this in news_articles so the user sees it
+            # For some other reason
             logging.error("Failed to get articles from News API")
 
         # Still return the response, in this case it will consist of an error message

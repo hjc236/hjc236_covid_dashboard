@@ -1,0 +1,1 @@
+from hjc236_covid_dashboard.main import schedule_update, remove_update_from_update_list
