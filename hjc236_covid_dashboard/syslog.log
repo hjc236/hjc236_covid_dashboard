@@ -27,3 +27,63 @@ Web server initialised
 2021-12-09 13:13:01,608 Starting new HTTPS connection (1): newsapi.org:443
 2021-12-09 13:13:01,966 https://newsapi.org:443 "GET /v2/everything?q=Covid%20COVID-19%20coronavirus&apiKey=ddd&sortBy=publishedAt&language=en HTTP/1.1" 401 162
 2021-12-09 13:13:01,968 Invalid News API key in configuration file
+2021-12-09 13:46:59,486 Initialising news articles
+2021-12-09 13:46:59,492 Starting new HTTPS connection (1): newsapi.org:443
+2021-12-09 13:47:00,005 https://newsapi.org:443 "GET /v2/everything?q=Covid%20COVID-19%20coronavirus&apiKey=ebefae8e017548f28a16851a36812ef5&sortBy=publishedAt&language=en HTTP/1.1" 200 None
+2021-12-09 13:47:00,009 Initialising COVID data
+2021-12-09 13:47:00,012 Starting new HTTPS connection (1): api.coronavirus.data.gov.uk:443
+2021-12-09 13:47:00,509 https://api.coronavirus.data.gov.uk:443 "GET /v1/data?filters=areaType%3Dltla%3BareaName%3Dexeter&structure=%7B%22date%22%3A%22date%22%2C%22areaType%22%3A%22areaType%22%2C%22areaName%22%3A%22areaName%22%2C%22newCases%22%3A%22newCasesBySpecimenDate%22%7D&format=json&page=1 HTTP/1.1" 200 None
+2021-12-09 13:47:00,515 Starting new HTTPS connection (1): api.coronavirus.data.gov.uk:443
+2021-12-09 13:47:00,951 https://api.coronavirus.data.gov.uk:443 "GET /v1/data?filters=areaType%3Dltla%3BareaName%3Dexeter&structure=%7B%22date%22%3A%22date%22%2C%22areaType%22%3A%22areaType%22%2C%22areaName%22%3A%22areaName%22%2C%22newCases%22%3A%22newCasesBySpecimenDate%22%7D&format=json&page=2 HTTP/1.1" 204 0
+2021-12-09 13:47:00,960 Starting new HTTPS connection (1): api.coronavirus.data.gov.uk:443
+2021-12-09 13:47:01,573 https://api.coronavirus.data.gov.uk:443 "GET /v1/data?filters=areaType%3Dnation%3BareaName%3Dengland&structure=%7B%22date%22%3A%22date%22%2C%22areaType%22%3A%22areaType%22%2C%22areaName%22%3A%22areaName%22%2C%22newCases%22%3A%22newCasesByPublishDate%22%2C%22hospitalCases%22%3A%22hospitalCases%22%2C%22cumDeaths%22%3A%22cumDailyNsoDeathsByDeathDate%22%7D&format=json&page=1 HTTP/1.1" 200 None
+2021-12-09 13:47:01,580 Starting new HTTPS connection (1): api.coronavirus.data.gov.uk:443
+2021-12-09 13:47:02,011 https://api.coronavirus.data.gov.uk:443 "GET /v1/data?filters=areaType%3Dnation%3BareaName%3Dengland&structure=%7B%22date%22%3A%22date%22%2C%22areaType%22%3A%22areaType%22%2C%22areaName%22%3A%22areaName%22%2C%22newCases%22%3A%22newCasesByPublishDate%22%2C%22hospitalCases%22%3A%22hospitalCases%22%2C%22cumDeaths%22%3A%22cumDailyNsoDeathsByDeathDate%22%7D&format=json&page=2 HTTP/1.1" 204 0
+2021-12-09 13:47:02,055  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+2021-12-09 13:47:05,092 Deletion request for update 'Repeat please ffs'
+2021-12-09 13:47:05,106 127.0.0.1 - - [09/Dec/2021 13:47:05] "GET /index?update_item=Repeat+please+ffs HTTP/1.1" 200 -
+2021-12-09 13:47:05,216 127.0.0.1 - - [09/Dec/2021 13:47:05] "[33mGET /static/images/coronavirus_icon.png HTTP/1.1[0m" 404 -
+2021-12-09 13:47:05,294 127.0.0.1 - - [09/Dec/2021 13:47:05] "[33mGET /static/images/coronavirus_icon.png HTTP/1.1[0m" 404 -
+2021-12-09 13:47:05,355 127.0.0.1 - - [09/Dec/2021 13:47:05] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2021-12-09 13:47:07,482 127.0.0.1 - - [09/Dec/2021 13:47:07] "GET /index HTTP/1.1" 200 -
+2021-12-09 13:47:07,530 127.0.0.1 - - [09/Dec/2021 13:47:07] "[33mGET /static/images/coronavirus_icon.png HTTP/1.1[0m" 404 -
+2021-12-09 13:47:07,579 127.0.0.1 - - [09/Dec/2021 13:47:07] "[33mGET /static/images/coronavirus_icon.png HTTP/1.1[0m" 404 -
+2021-12-09 13:47:10,986 Deletion request for article '<a href=https://bdnews24.com/coronavirus-pandemic/2021/12/09/doctors-weigh-covid-19-impact-on-children-as-vaccine-drives-ramp-up>Doctors weigh COVID-19 impact on children as vaccine drives ramp up</a>'
+2021-12-09 13:47:10,986 Deleted article with title '<a href=https://bdnews24.com/coronavirus-pandemic/2021/12/09/doctors-weigh-covid-19-impact-on-children-as-vaccine-drives-ramp-up>Doctors weigh COVID-19 impact on children as vaccine drives ramp up</a>'
+2021-12-09 13:47:10,987 127.0.0.1 - - [09/Dec/2021 13:47:10] "GET /index?notif=%3Ca+href%3Dhttps%3A%2F%2Fbdnews24.com%2Fcoronavirus-pandemic%2F2021%2F12%2F09%2Fdoctors-weigh-covid-19-impact-on-children-as-vaccine-drives-ramp-up%3EDoctors+weigh+COVID-19+impact+on+children+as+vaccine+drives+ramp+up%3C%2Fa%3E HTTP/1.1" 200 -
+2021-12-09 13:47:11,047 127.0.0.1 - - [09/Dec/2021 13:47:11] "[33mGET /static/images/coronavirus_icon.png HTTP/1.1[0m" 404 -
+2021-12-09 13:47:11,100 127.0.0.1 - - [09/Dec/2021 13:47:11] "[33mGET /static/images/coronavirus_icon.png HTTP/1.1[0m" 404 -
+2021-12-09 13:47:22,528 Empty update attempted, ignoring. Updates must update at least one of Covid data or news.
+2021-12-09 13:47:22,529 127.0.0.1 - - [09/Dec/2021 13:47:22] "GET /index?update=13%3A48&two=Test+News+Delete&news=news HTTP/1.1" 200 -
+2021-12-09 13:47:22,587 127.0.0.1 - - [09/Dec/2021 13:47:22] "[33mGET /static/images/coronavirus_icon.png HTTP/1.1[0m" 404 -
+2021-12-09 13:47:22,641 127.0.0.1 - - [09/Dec/2021 13:47:22] "[33mGET /static/images/coronavirus_icon.png HTTP/1.1[0m" 404 -
+2021-12-09 13:48:22,719 127.0.0.1 - - [09/Dec/2021 13:48:22] "GET /index HTTP/1.1" 200 -
+2021-12-09 13:48:22,770 127.0.0.1 - - [09/Dec/2021 13:48:22] "[33mGET /static/images/coronavirus_icon.png HTTP/1.1[0m" 404 -
+2021-12-09 13:48:23,013 127.0.0.1 - - [09/Dec/2021 13:48:23] "[33mGET /static/images/coronavirus_icon.png HTTP/1.1[0m" 404 -
+2021-12-09 13:48:37,881 127.0.0.1 - - [09/Dec/2021 13:48:37] "GET /index HTTP/1.1" 200 -
+2021-12-09 13:48:37,935 127.0.0.1 - - [09/Dec/2021 13:48:37] "[33mGET /static/images/coronavirus_icon.png HTTP/1.1[0m" 404 -
+2021-12-09 13:48:37,980 127.0.0.1 - - [09/Dec/2021 13:48:37] "[33mGET /static/images/coronavirus_icon.png HTTP/1.1[0m" 404 -
+2021-12-09 13:48:46,127 Deletion request for article '<a href=https://soccer.nbcsports.com/2021/12/09/joshua-kimmichs-covid-19-recovery-will-reach-2022-after-lung-problems/>Joshua Kimmich’s COVID-19 recovery will reach 2022 after lung problems</a>'
+2021-12-09 13:48:46,128 Deleted article with title '<a href=https://soccer.nbcsports.com/2021/12/09/joshua-kimmichs-covid-19-recovery-will-reach-2022-after-lung-problems/>Joshua Kimmich’s COVID-19 recovery will reach 2022 after lung problems</a>'
+2021-12-09 13:48:46,129 127.0.0.1 - - [09/Dec/2021 13:48:46] "GET /index?notif=%3Ca+href%3Dhttps%3A%2F%2Fsoccer.nbcsports.com%2F2021%2F12%2F09%2Fjoshua-kimmichs-covid-19-recovery-will-reach-2022-after-lung-problems%2F%3EJoshua+Kimmich’s+COVID-19+recovery+will+reach+2022+after+lung+problems%3C%2Fa%3E HTTP/1.1" 200 -
+2021-12-09 13:48:46,172 127.0.0.1 - - [09/Dec/2021 13:48:46] "[33mGET /static/images/coronavirus_icon.png HTTP/1.1[0m" 404 -
+2021-12-09 13:48:46,242 127.0.0.1 - - [09/Dec/2021 13:48:46] "[33mGET /static/images/coronavirus_icon.png HTTP/1.1[0m" 404 -
+2021-12-09 13:48:49,952 127.0.0.1 - - [09/Dec/2021 13:48:49] "GET /index HTTP/1.1" 200 -
+2021-12-09 13:48:50,003 127.0.0.1 - - [09/Dec/2021 13:48:50] "[33mGET /static/images/coronavirus_icon.png HTTP/1.1[0m" 404 -
+2021-12-09 13:48:50,064 127.0.0.1 - - [09/Dec/2021 13:48:50] "[33mGET /static/images/coronavirus_icon.png HTTP/1.1[0m" 404 -
+2021-12-09 13:49:09,008 Deletion request for article '<a href=https://www.mirror.co.uk/news/uk-news/who-classified-key-worker-who-25654521>Who is classified as a key worker and who can go to work under Plan B? Full list of jobs</a>'
+2021-12-09 13:49:09,008 Deleted article with title '<a href=https://www.mirror.co.uk/news/uk-news/who-classified-key-worker-who-25654521>Who is classified as a key worker and who can go to work under Plan B? Full list of jobs</a>'
+2021-12-09 13:49:09,008 127.0.0.1 - - [09/Dec/2021 13:49:09] "GET /index?notif=%3Ca+href%3Dhttps%3A%2F%2Fwww.mirror.co.uk%2Fnews%2Fuk-news%2Fwho-classified-key-worker-who-25654521%3EWho+is+classified+as+a+key+worker+and+who+can+go+to+work+under+Plan+B%3F+Full+list+of+jobs%3C%2Fa%3E HTTP/1.1" 200 -
+2021-12-09 13:49:09,062 127.0.0.1 - - [09/Dec/2021 13:49:09] "[33mGET /static/images/coronavirus_icon.png HTTP/1.1[0m" 404 -
+2021-12-09 13:49:09,123 127.0.0.1 - - [09/Dec/2021 13:49:09] "[33mGET /static/images/coronavirus_icon.png HTTP/1.1[0m" 404 -
+2021-12-09 13:49:23,909 Empty update attempted, ignoring. Updates must update at least one of Covid data or news.
+2021-12-09 13:49:23,910 127.0.0.1 - - [09/Dec/2021 13:49:23] "GET /index?update=13%3A50&two=News+only&news=news HTTP/1.1" 200 -
+2021-12-09 13:49:23,958 127.0.0.1 - - [09/Dec/2021 13:49:23] "[33mGET /static/images/coronavirus_icon.png HTTP/1.1[0m" 404 -
+2021-12-09 13:49:24,014 127.0.0.1 - - [09/Dec/2021 13:49:24] "[33mGET /static/images/coronavirus_icon.png HTTP/1.1[0m" 404 -
+2021-12-09 13:49:37,863 Empty update attempted, ignoring. Updates must update at least one of Covid data or news.
+2021-12-09 13:49:37,863 127.0.0.1 - - [09/Dec/2021 13:49:37] "GET /index?update=13%3A50&two=news+only&repeat=repeat&news=news HTTP/1.1" 200 -
+2021-12-09 13:49:37,909 127.0.0.1 - - [09/Dec/2021 13:49:37] "[33mGET /static/images/coronavirus_icon.png HTTP/1.1[0m" 404 -
+2021-12-09 13:49:37,968 127.0.0.1 - - [09/Dec/2021 13:49:37] "[33mGET /static/images/coronavirus_icon.png HTTP/1.1[0m" 404 -
+2021-12-09 13:49:42,049 127.0.0.1 - - [09/Dec/2021 13:49:42] "GET /index HTTP/1.1" 200 -
+2021-12-09 13:49:42,098 127.0.0.1 - - [09/Dec/2021 13:49:42] "[33mGET /static/images/coronavirus_icon.png HTTP/1.1[0m" 404 -
+2021-12-09 13:49:42,158 127.0.0.1 - - [09/Dec/2021 13:49:42] "[33mGET /static/images/coronavirus_icon.png HTTP/1.1[0m" 404 -
