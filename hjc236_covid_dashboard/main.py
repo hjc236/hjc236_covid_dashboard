@@ -139,7 +139,7 @@ def web_interface() -> str:
     if update_time and update_name:
 
         covid_checkbox = request.args.get("covid-data")
-        news_checkbox = request.args.get("news-data")
+        news_checkbox = request.args.get("news")
         repeat_checkbox = request.args.get("repeat")
 
         updating_covid = (covid_checkbox == "covid-data")
@@ -155,7 +155,8 @@ def web_interface() -> str:
 
         # For each item in the web scheduler queue, check if its update name matches the update to be deleted
         # If so, cancel the event
-        # Doing it by update name instead of event object keeps consistency for repeating updates as they share names
+        # Doing it by update name instead of event object means repeated updates will also be deleted, as each
+        # repetition creates a different event object but they will keep the same name
         for event in web_scheduler.queue:
             if get_event_update_name(event) == update_for_deletion_name:
                 web_scheduler.cancel(event)
@@ -177,6 +178,7 @@ def web_interface() -> str:
     article_amount = get_config_data()["number_of_articles_to_display"]
     article_amount = int(article_amount)
 
+    # User may have used inconsistent capitalisation for in the config file so capitalize to ensure UI consistency
     national_location_formatted = webpage_covid_data["nation_location"].capitalize()
     location_formatted = webpage_covid_data["location"].capitalize()
 
@@ -184,25 +186,25 @@ def web_interface() -> str:
                            title="Daily update",
                            national_7day_infections=webpage_covid_data["national_7day_infections"],
                            local_7day_infections=webpage_covid_data["local_7day_infections"],
+                           location=location_formatted,
+                           nation_location=national_location_formatted,
 
-                           # Capitalise first letter of location names to ensure UI consistency
-                           location=webpage_covid_data["location"].capitalize(),
-                           nation_location=webpage_covid_data["nation_location"].capitalize(),
-
-                           # These have no label on the HTML so the label is passed in on this end
+                           # These have no label in the HTML so the label is passed in on this end
                            deaths_total=f"Total deaths ({national_location_formatted}): "
                                         + f"{webpage_covid_data['deaths_total']}",
 
                            hospital_cases=f"Current hospital cases ({national_location_formatted}): "
                                           + f"{webpage_covid_data['hospitalCases']}",
 
+                           # Only display as many news articles as requested in the config file (default 5)
                            news_articles=webpage_news_articles[0:article_amount],
-                           updates=updates,
 
+                           updates=updates,
                            image="coronavirus_icon.png",
                            )
 
 
+# Run the flask webpage itself
 if __name__ == '__main__':
     logging.info("\n\nWeb server initialised")
     app.run()
