@@ -5,7 +5,7 @@ with open("README.md", "r") as readme:
 
 setuptools.setup(
     name = 'hjc236_covid_dashboard',
-    version = '1.1',
+    version = '1.05',
     author = 'hjc236',
     author_email = '',
     description = 'A python project which generates a web dashboard with COVID-19 data and relevant news articles.',

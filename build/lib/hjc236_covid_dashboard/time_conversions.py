@@ -1,3 +1,13 @@
+"""
+Contains functions for converting time between different formats
+
+Functions:
+    minutes_to_seconds()
+    hours_to_minutes()
+    hhmm_to_seconds()
+    current_time_seconds()
+"""
+
 import time
 
 

@@ -1,3 +1,18 @@
+"""
+Manages the retrieval and processing of COVID-19 data via Public Health England's API
+
+Functions:
+    parse_csv_data() [unused, demonstrative for specification]
+    process_covid_csv_data() [unused, demonstrative for specification]
+    schedule_covid_updates() [unused, demonstrative for specification]
+
+    make_API_call()
+    convert_json_data()
+    process_covid_json_data()
+    covid_API_request()
+    update_covid()
+"""
+
 import logging
 import sched
 import time
@@ -14,25 +29,38 @@ logging.basicConfig(filename=path, level=logging.DEBUG, format="%(asctime)s %(me
 
 
 def parse_csv_data(csv_filename: str) -> list[str]:
-    """Returns a list of strings for the rows in a given CSV file.
+    """Parses a CSV file into a list of strings.
 
     NOTE: This is a purely demonstrative function made to fit the specification, actual data handling is done with JSON
-    """
-    current_location = os.path.abspath(os.path.dirname( __file__ ))
-    file_path = os.path.abspath(os.path.join(current_location, csv_filename))
 
-    with open(file_path, 'r') as csv_file:
+    Args:
+        csv_filename: The name of the CSV file
+
+    Returns:
+        A list of strings, where each string is one row of the CSV file.
+    """
+
+    base_location = os.path.abspath(os.path.dirname( __file__ ))
+    file_path = os.path.abspath(os.path.join(base_location, csv_filename))
+
+    with open(file_path, 'r', encoding="utf-8") as csv_file:
         csv_rows = csv_file.read().splitlines()
 
     return csv_rows
 
 
 def process_covid_csv_data(covid_csv_data: list[str]) -> tuple[int, int, int]:
-    """Returns the number of cases over the last 7 days, current number of hospital cases, and cumulative deaths from
-    given COVID data
+    """Processes parsed CSV COVID-19 data into relevant values.
 
-    NOTE: This is a purely demonstrative function made to fit the specification, actual data handling is done with
-    covid_data_handler.process_covid_JSON_data()
+    NOTE: This is a purely demonstrative function made to fit the specification, actual data handling is done with JSON
+
+    Args:
+        covid_csv_data: A list of strings where each string is a single row of a CSV file containing COVID-19 data.
+
+    Returns:
+        The amount of COVID-19 cases in the last 7 days.
+        The current amount of hospitalised COVID-19 cases.
+        The total cumulative amount of COVID-19 related deaths.
     """
 
     # Split CSV rows to create a 2D array.
@@ -50,16 +78,34 @@ def process_covid_csv_data(covid_csv_data: list[str]) -> tuple[int, int, int]:
 
 
 def make_API_call(filters: list[str], structure: dict) -> dict:
-    """Returns a JSON object containing COVID data based on the given filters and structure"""
+    """Makes an API call via the Cov19API to get up-to-date COVID-19 data.
+
+    Args:
+        filters: A list of the filters to apply when retrieving the data
+        structure: The format the data should be retrieved in
+    Returns:
+        A JSON structure containing the requested COVID-19 data
+    """
     data = Cov19API(filters=filters, structure=structure)
     result = data.get_json()
 
     return result
 
 
-def convert_JSON_data(list_of_dictionaries: list[dict]) -> dict[dict]:
-    """Converts the list of dictionaries returned from the API to a single dictionary, where an item's key is the
-    date of the COVID data, and the value is a dictionary of the remaining metrics"""
+def convert_json_data(list_of_dictionaries: list[dict]) -> dict[dict]:
+    """Converts a list of dictionaries into a dictionary of dictionaries.
+
+    A list of dictionaries containing COVID-19 data becomes a dictionary of dictionaries containing COVID-19 data, where
+    the key becomes the first value of the old dictionary (the date) and the value becomes a dictionary containing the
+    rest of that entry's data.
+
+    Args:
+        list_of_dictionaries: A list of dictionaries containing COVID-19 data.
+
+    Returns:
+        A dictionary of dictionaries containing COVID-19 data.
+    """
+
 
     dictionary_of_dictionaries = {}
     for i in range(0, len(list_of_dictionaries)):
@@ -71,7 +117,11 @@ def convert_JSON_data(list_of_dictionaries: list[dict]) -> dict[dict]:
 
 
 def process_covid_json_data(local_json: dict, national_json: dict) -> dict:
-    """Returns a dictionary of specified metrics based on the JSON files of local and national COVID data"""
+    """Returns a dictionary of specified metrics based on the JSON files of local and national COVID data
+
+    The specified metrics are: total cumulative deaths, current hospital cases, the 7-day infection rate for the
+    national data set, and the 7-day infection rate for the local data set
+    """
 
     deaths_total = None
     hospitalCases = None
@@ -111,7 +161,7 @@ def process_covid_json_data(local_json: dict, national_json: dict) -> dict:
             else:
                 skipped_first_day = True
 
-    covid_data = {
+    covid_data_dictionary = {
         "local_7day_infections": local_7day_infections,  # local case total in the last 7 days
 
         "national_7day_infections": national_7day_infections,  # national case total in the last 7 days
@@ -119,7 +169,7 @@ def process_covid_json_data(local_json: dict, national_json: dict) -> dict:
         "deaths_total": deaths_total,  # current amount of cumulative deaths
     }
 
-    return covid_data
+    return covid_data_dictionary
 
 
 def covid_API_request(location: str = "exeter", location_type: str = "ltla") -> dict:
@@ -142,8 +192,8 @@ def covid_API_request(location: str = "exeter", location_type: str = "ltla") -> 
 
     # strip headers from JSON data and convert from lists of dictionaries to one dictionary where key = date and
     # value = dictionary of remaining data
-    local_data = convert_JSON_data(local_data["data"])
-    national_data = convert_JSON_data(national_data["data"])
+    local_data = convert_json_data(local_data["data"])
+    national_data = convert_json_data(national_data["data"])
 
     processed_covid_data = process_covid_json_data(local_data, national_data)
 
@@ -180,13 +230,12 @@ def schedule_covid_updates(update_interval: int, update_name: str) -> None:
 
 
 def update_covid(update_name: str) -> None:
-    """Updates the global webpage_covid_data list, this is in main.py and is what gets passed to the
-    web page"""
+    """Updates the global webpage_covid_data list, this is in main.py and is what gets passed to the web page"""
+    logging.info(f"Updating COVID data due to update '{update_name}'")
+
 
     global webpage_covid_data
     location = get_config_data()["local_location"]
     location_type = get_config_data()["local_location_type"]
 
     webpage_covid_data = covid_API_request(location, location_type)
-
-
