@@ -1,4 +1,3 @@
-import time
 from hjc236_covid_dashboard.time_conversions import *
 
 

@@ -1,23 +1,13 @@
-"""
-Manages the retrieval, processing, and formatting of news articles via the News API
-
-Functions:
-    news_API_request()
-    update_news()
-    format_news_data()
-"""
-
-import logging
 import requests
-from flask import Markup
 from hjc236_covid_dashboard.config_handler import get_config_data, ConfigError
-
+import logging
+from flask import Markup
 
 log_file_location = get_config_data()["log_file_path"]
 logging.basicConfig(filename=log_file_location, level=logging.DEBUG, format="%(asctime)s %(message)s")
 
 
-def news_API_request(covid_terms: str = "Covid COVID-19 coronavirus") -> list[dict]:
+def news_API_request(covid_terms: str = "covid COVID-19 coronavirus") -> list[dict]:
     """Returns relevant current news articles from the News API based on the covid_terms argument"""
     # TODO handle connection errors
     api_key = get_config_data()["news_api_key"]
@@ -28,26 +18,17 @@ def news_API_request(covid_terms: str = "Covid COVID-19 coronavirus") -> list[di
     news_data = response.json()
 
     if news_data["status"] == "error":
-        # News articles are not returned from API...
         if news_data["code"] == "apiKeyInvalid":
-            # Because the API key was invalid - put this in news_articles so the user sees it
-            logging.error("Invalid News API key in configuration file")
             raise ConfigError("Invalid News API key in configuration file")
         else:
-            # For some other reason - put this in news_articles so the user sees it
             logging.error("Failed to get articles from News API")
-            raise ConfigError("Failed to get articles from News API")
 
-    else:
-        # News articles are correctly returned from API, get rid of headers and keep 'articles'
-        news_data = news_data["articles"]
+    news_data = news_data["articles"]
     return news_data
 
 
 def update_news(update_name: str, deleted_articles: list[dict] = None) -> None:
     """Updates the global webpage_news_articles list with new content from the News API"""
-    logging.info(f"Updating news due to update '{update_name}'")
-
     covid_terms = get_config_data()["news_covid_terms"]
     news_data = news_API_request(covid_terms)
 

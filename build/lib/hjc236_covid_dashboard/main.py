@@ -1,47 +1,32 @@
-"""
-Creates the dashboard as a webpage via flask, using the data passed in from other modules.
-
-Functions:
-    schedule_update()
-    run_scheduled_update()
-    remove_update_from_update_list()
-    get_event_update_name()
-    web_interface()
-"""
-
-import sched
-import time
-import logging
-
-from flask import Flask, render_template, request
-
+from flask import Flask
+from flask import render_template
+from flask import request
 from hjc236_covid_dashboard.covid_data_handler import covid_API_request, update_covid
 from hjc236_covid_dashboard.covid_news_handling import news_API_request, update_news, format_news_data
 from hjc236_covid_dashboard.time_conversions import hhmm_to_seconds, current_time_seconds
 from hjc236_covid_dashboard.config_handler import get_config_data, validate_config_data
 
-
+import sched
+import time
+import logging
 
 log_file_location = get_config_data()["log_file_path"]
 logging.basicConfig(filename=log_file_location, level=logging.DEBUG, format="%(asctime)s %(message)s")
 
-app = Flask(__name__)
-web_scheduler = sched.scheduler(time.time, time.sleep)
-
-# On startup, ensure that the values in the configuration file are valid
 config_data = get_config_data()
 validate_config_data(config_data)
 
-# Initialise news articles
+logging.info("\n\nWeb server initialised")
+
+app = Flask(__name__)
+web_scheduler = sched.scheduler(time.time, time.sleep)
+
 logging.info("Initialising news articles")
 webpage_news_articles = format_news_data(news_API_request())
+update_news("s")
 deleted_articles = []
-
-# Initialise COVID data
 logging.info("Initialising COVID data")
 webpage_covid_data = covid_API_request()
-
-# Create updates list which contains the updates displayed on the left webpage sidebar
 updates = []
 
 
@@ -83,14 +68,16 @@ def schedule_update(update_time: str, update_name: str, repeat=False, covid=Fals
     })
 
 
-def run_scheduled_update(update_name: str, repeat: bool = False, covid: bool = False, news: bool = False) -> None:
+def run_scheduled_update(update_name: str, repeat: bool = False, covid: bool =False, news: bool = False) -> None:
     """A wrapper function for actually running the update, necessary so that it can re-add itself to the
     scheduler every time it's run if meant to repeat"""
 
     logging.info(f"Running scheduled update '{update_name}'")
     if news:
+        logging.info(f"Updating news due to update '{update_name}'")
         update_news(update_name)
     if covid:
+        logging.info(f"Updating COVID data due to update '{update_name}'")
         update_covid(update_name)
     if repeat:
         # If meant to repeat, every time it runs it adds itself to the scheduler in repeat_interval seconds.
@@ -138,13 +125,20 @@ def web_interface() -> str:
     # Only triggers if the user has entered both an update name and time
     if update_time and update_name:
 
-        covid_checkbox = request.args.get("covid-data")
-        news_checkbox = request.args.get("news-data")
-        repeat_checkbox = request.args.get("repeat")
+        if request.args.get("covid-data") == "covid-data":
+            updating_covid = True
+        else:
+            updating_covid = False
 
-        updating_covid = (covid_checkbox == "covid-data")
-        updating_news = (news_checkbox == "news")
-        repeat = (repeat_checkbox == "repeat")
+        if request.args.get("news") == "news":
+            updating_news = True
+        else:
+            updating_news = False
+
+        if request.args.get("repeat") == "repeat":
+            repeat = True
+        else:
+            repeat = False
 
         schedule_update(update_time, update_name, covid=updating_covid, news=updating_news, repeat=repeat)
 
@@ -204,5 +198,4 @@ def web_interface() -> str:
 
 
 if __name__ == '__main__':
-    logging.info("\n\nWeb server initialised")
     app.run()

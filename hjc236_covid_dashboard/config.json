@@ -1,7 +1,7 @@
 {
   "_comment": "For an explanation of what the below values mean, and their valid alternatives, see readme.md",
 
-  "news_api_key": "",
+  "news_api_key": "ebefae8e017548f28a16851a36812ef5",
   "news_covid_terms": "Covid COVID-19 coronavirus",
   "news_language": "en",
   "number_of_articles_to_display": "5",

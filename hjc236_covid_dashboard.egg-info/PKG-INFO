@@ -1,3 +1,19 @@
+Metadata-Version: 2.1
+Name: hjc236-covid-dashboard
+Version: 1.1
+Summary: A python project which generates a web dashboard with COVID-19 data and relevant news articles.
+Home-page: https://github.com/hjc236/hjc236_covid_dashboard/
+Author: hjc236
+Author-email: 
+License: UNKNOWN
+Platform: UNKNOWN
+Classifier: Operating System :: OS Independent
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Requires-Python: >=3.9
+Description-Content-Type: text/markdown
+License-File: LICENSE.txt
+
 # hjc236-covid-dashboard
 
 hjc236_covid_dashboard is a python project which generates a web dashboard with COVID-19 data and relevant news articles.
@@ -6,13 +22,9 @@ hjc236_covid_dashboard is a python project which generates a web dashboard with 
 
 Use the package manager [pip](https://pip.pypa.io/en/stable/) to install hjc236_covid_dashboard.
 
-```
+```bash
 pip install hjc236_covid_dashboard
 ```
-
-Navigate to the ```config.json``` file and add your API key for [News API](https://newsapi.org) in the ```news_API_key``` field.
-
-**The program will not work succesfully unless you have configured it with this API key. If you do not have an API key, you can get one at [this link](https://newsapi.org/docs/get-started).**
 
 ## Usage
 
@@ -21,7 +33,6 @@ Navigate to the ```config.json``` file and add your API key for [News API](https
 * Navigate to ```127.0.0.1:5000/index``` in a web browser.
 
 ### Scheduling updates
-At the bottom of the webpage, you can schedule and configure updates. Updates are able to replace the COVID-19 data and news articles with the most recent content from their respective APIs.
 * Set the time you want your update to run
 * Set a name for the update (it must not be the same as any existing updates)
 * Choose whether you want the update to repeat or not. By default, updates repeat every 24 hours if selected. This can be changed in the ```config.json``` file.
@@ -55,25 +66,7 @@ The ```config.json```  file can be edited to customise the dashboard. Configurat
 
 ```repeat_interval_seconds```: The amount of time before a repeating update repeats itself, in seconds. Default is ```86400``` which is 24 hours.
 
-
-## Testing
-The package can be tested by navigating to the file containing the package and running pytest in the terminal.
-```bash
-cd <file containing the hjc236_covid_dashboard directory>
-pytest
-```
-This means you must have pytest installed. If you do not, then you can install it with pip.
-```bash
-pip install pytest
-```
-
-**NOTE THAT THE TESTS WILL RETURN ERRORS IF YOU HAVE FAILED TO CORRECTLY CONFIGURE THE PROGRAM WITH A NEWS API KEY.
-THIS IS EXPECTED BEHAVIOUR.**
-
-**You must have registered for a free API key from [News API](https://newsapi.org/), and entered this into the ```config.json``` file, in order to use this program.**
-
-
-## Troubleshooting
+## FAQ
 ##### I am getting the error: *'news_api_key has not been set in config file'*
 You need to register for an account at https://newsapi.org/ and insert your API key in the ```news_api_key``` field in the ```config.json``` file.
 
@@ -89,8 +82,7 @@ This program was made to fit a specification which required the creation of some
 #### The COVID-19 data is incorrect
 The data processing functions find the most recent valid values from the API, but this is often a few days behind because collecting the data takes time. All Covid-19 data is taken from the UK government's statistics via the official [API](https://coronavirus.data.gov.uk/details/developers-guide).
 
-#### I have another problem
-Try looking at the log file which will have more information about what happened. It is called ```syslog.log```, in the same directory as the python files, unless you have changed this in the configuration file.
-
 ## License
 [MIT](https://choosealicense.com/licenses/mit/)
+
+
